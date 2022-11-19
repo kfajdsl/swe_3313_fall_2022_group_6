@@ -1,12 +1,150 @@
 {
+  "Orders": [
+    {
+      "OrderID": "2d97cc34-e064-4521-941c-aaa994118d82",
+      "CustomerID": "678-101-1234",
+      "DateTime": "2022-10-1 11:11:11",
+      "Total": 11.40,
+      "Tax": 0.65,
+      "Subtotal": 10.75,
+      "PointsEarned": 114,
+      "PaymentMethod": "Credit",
+      "Drinks": [
+        {
+          "Name": "Iced Matcha Latte",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Extra Ice",
+              "Price": 0.00
+            },
+            {
+              "Name": "Extra Matcha",
+              "Price": 0.50
+            }
+          ]
+        },
+        {
+          "Name": "Coffee",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Size Small",
+              "Price": 0.00
+            },
+            {
+              "Type": "Extra Espresso Shot",
+              "Price": 1.25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "OrderID": "b55e1067-69d1-4315-ad85-b8f0e6fde58f",
+      "CustomerID": "123-456-7890",
+      "DateTime": "2022-10-1 9:10:54",
+      "Total": 13.25,
+      "Tax": 0.75,
+      "Subtotal": 12.50,
+      "PointsEarned": 0,
+      "PaymentMethod": "Rewards",
+      "Drinks": [
+        {
+          "Drink": "Latte",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Size Large",
+              "Price": 1.00
+            },
+            {
+              "Name": "Lots of Foam",
+              "Price": 0.00
+            }
+          ]
+        },
+        {
+          "Drink": "Coffee",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Size Medium",
+              "Price": 2.00
+            },
+            {
+              "Name": "Soy Milk Creamer",
+              "Price": 1.50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "OrderID": "6dfe31a8-e5af-4a59-a9e7-f5d929bff263",
+      "CustomerID": "123-456-7890",
+      "DateTime": "2022-10-2 9:09:02",
+      "Total": 13.25,
+      "Tax": 0.75,
+      "Subtotal": 12.50,
+      "PointsEarned": 132,
+      "PaymentMethod": "Credit",
+      "Drinks": [
+        {
+          "Drink": "Coffee",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Size Large",
+              "Price": 1.00
+            },
+            {
+              "Name": "Lots of Foam",
+              "Price": 0.00
+            }
+          ]
+        },
+        {
+          "Drink": "Coffee",
+          "BasePrice": 4,
+          "Customizations": [
+            {
+              "Name": "Size Medium",
+              "Price": 2.00
+            },
+            {
+              "Name": "Almond Milk Creamer",
+              "Price": 1.50
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "Customers": {
     "anonymous": {
       "Phone": "anonymous",
-      "RewardPoints": 0
+      "RewardPoints": 0,
+      "FirstName": "Anonymous",
+      "LastName": "Anonymous",
     },
     "404-444-5555": {
       "Phone": "404-444-5555",
-      "RewardPoints": 95
+      "RewardPoints": 0,
+      "FirstName": "John",
+      "LastName": "Johnson",
+    },
+    "678-101-1234": {
+      "Phone": "404-444-5555",
+      "RewardPoints": 114,
+      "FirstName": "Steve",
+      "LastName": "Smith",
+    },
+    "123-456-7890": {
+      "Phone": "123-456-7890",
+      "RewardPoints": 999,
+      "FirstName": "Joe",
+      "LastName": "Joseph",
     }
   }
 }
