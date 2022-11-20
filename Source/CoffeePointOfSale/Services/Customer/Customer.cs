@@ -11,8 +11,8 @@ public class Customer
 
     private string _phone = ""; //backing field for Phone property. only needed because the setter has logic to handle nulls and trimming spaces.
     private int _rewardPoints;
-    private int _firstName;
-    private int _lastName;
+    private string _firstName;
+    private string _lastName;
 
     public virtual string Phone
     {
@@ -34,7 +34,7 @@ public class Customer
             _rewardPoints = value;
         }
     }
-    public virtual int FirstName
+    public virtual string FirstName
     {
         get => _firstName;
         set
@@ -43,7 +43,7 @@ public class Customer
             _firstName = value;
         }
     }
-    public virtual int LastName
+    public virtual string LastName
     {
         get => _lastName;
         set
