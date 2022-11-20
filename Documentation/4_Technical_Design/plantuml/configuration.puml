@@ -1,0 +1,39 @@
+@startuml
+
+skinparam classAttributeIconSize 0 
+
+package Configuration {
+
+class App {
+  <<property>> +Name: string
+}
+
+class Tax {
+  <<property>> +Rate: decimal
+}
+
+class Rewards {
+  <<property>> +PointsPerDollar: decimal
+}
+
+interface IAppSettings {
+  <<property>> +App: App
+  <<property>> +Tax: Tax
+  <<property>> +Rewards: Rewards
+}
+AppSettings --|> IAppSettings
+
+
+
+class AppSettings {
+  <<property>> +App: App
+  <<property>> +Tax: Tax
+  <<property>> +Rewards: Rewards
+}
+AppSettings *-- App
+AppSettings *-- Tax
+AppSettings *-- Rewards
+
+}
+
+@enduml
