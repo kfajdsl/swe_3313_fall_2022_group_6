@@ -145,6 +145,7 @@ class OrdersService {
   +OrdersService(storageService: IStorageService)
   +SubmitOrder(order: Order): void
   +Write(): void
+  +WriteToCSV(): void
 }
 IOrdersService <|-- OrdersService
 OrdersService o-- Order
@@ -152,4 +153,5 @@ OrdersService --> IStorageService
 
 }
 }
+
 @enduml
