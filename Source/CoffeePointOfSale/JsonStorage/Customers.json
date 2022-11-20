@@ -126,25 +126,25 @@
       "Phone": "anonymous",
       "RewardPoints": 0,
       "FirstName": "Anonymous",
-      "LastName": "Anonymous",
+      "LastName": "Anonymous"
     },
     "404-444-5555": {
       "Phone": "404-444-5555",
       "RewardPoints": 0,
       "FirstName": "John",
-      "LastName": "Johnson",
+      "LastName": "Johnson"
     },
     "678-101-1234": {
       "Phone": "404-444-5555",
       "RewardPoints": 114,
       "FirstName": "Steve",
-      "LastName": "Smith",
+      "LastName": "Smith"
     },
     "123-456-7890": {
       "Phone": "123-456-7890",
       "RewardPoints": 999,
       "FirstName": "Joe",
-      "LastName": "Joseph",
+      "LastName": "Joseph"
     }
   }
 }
