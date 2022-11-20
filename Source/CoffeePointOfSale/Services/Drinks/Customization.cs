@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace CoffeePointOfSale.Services.DrinkMenu;
+namespace CoffeePointOfSale.Services.Drinks;
 
 public class Customization
 {
     public string Name { get; set; }
-    public Decimal Price { get; set; }
+    public decimal Price { get; set; }
 
     public override string ToString()
     {

@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 
-namespace CoffeePointOfSale.Services.DrinkMenu;
+namespace CoffeePointOfSale.Services.Drinks;
 
 public class Drink
 {
     public string Name { get; set; }
     public string BaseDescription { get; set; }
     public string Image { get; set; }
-    public Decimal BasePrice { get; set; }
+    public decimal BasePrice { get; set; }
 
     public List<Customization> Customizations { get; set; }
 
