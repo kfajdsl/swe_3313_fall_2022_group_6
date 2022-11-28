@@ -1,0 +1,129 @@
+@startuml
+
+skinparam classAttributeIconSize 0 
+top to bottom direction
+
+interface IAppSettings {}
+interface ICustomerService {}
+interface IOrdersService {}
+interface IDrinkMenuService {}
+class Customer {}
+class Order
+class Form
+
+package Forms {
+
+package Base {
+
+class FormBase {
+  -_appSettings: IAppSettings
+
+  +FormBase()
+  +FormBase(appsettings: IAppSettings)
+  #ConfigureWindow(): void
+  #SetTitle(title: string): void
+  -InitializeComponent(): void
+  -OnLoadFormBase(sender: object, e: EventArgs): void
+}
+FormBase --|> Form
+FormBase -down-> IAppSettings
+
+class FormNoCloseBase {
+  <<property>> #CreateParams: CreateParams
+
+  +FormNoCloseBase()
+  +FormNoCloseBase(appSettings: IAppSettings)
+  -InitializeComponent(): void
+}
+FormNoCloseBase --|> FormBase
+
+}
+
+class FormMain {
+  +FormMain(app: IAppSettings)
+  -OnClickBtnManagement(sender: object, e: EventArgs): void
+  -OnClickBtnCustomers(sender: object, e: EventArgs): void
+  -OnClickBtnOrder(sender: object, e: EventArgs): void
+  -OnFormMainClosed(sender: object, e: EventArgs): void
+}
+FormMain --|> FormBase
+
+class FormManagement {
+  -_orderService: IOrdersService
+  -_appSettings: IAppSettings
+
+  +FormManagement(app: IAppSettings
+  , orderService: IOrderService)
+  -GenerateReport(): void
+  -OnClickBtnGenReport(sender: object, e: EventArgs): void
+  -OnClickBtnClose(sender: object, e: EventArgs): void
+}
+FormManagement --|> FormNoCloseBase
+FormManagement -u-> IOrdersService
+
+class FormCustomerList {
+  -_customerService: ICustomerService
+  -_appSettings: IAppSettings
+
+  +FormCustomerList(app: IAppSettings
+  , customerService: ICustomerService)
+  -DisplayCustomerList(): void
+  -OnClickBtnClose(sender: object, e: EventArgs): void
+}
+FormCustomerList --|> FormNoCloseBase
+FormCustomerList -u-> ICustomerService
+
+class FormOrderDrink {
+  -_drinkMenuService: IDrinkMenuService
+  -_customer: Customer
+  -_appSettings: IAppSettings
+  
+  +FormOrderDrink(app: IAppSettings
+  , customer: Customer
+  , drinkMenuService: IDrinkMenuService)
+  -DisplayDrinkMenu(): void
+  -DisplayCustomizations(): void
+  -OnClickBtnSubmit(sender: object, e: EventArgs): void
+  -OnClickBtnClose(sender: object, e: EventArgs): void
+}
+FormOrderDrink --|> FormNoCloseBase
+FormOrderDrink -u-> IDrinkMenuService
+
+class FormPayment {
+  -_orderService: IOrdersService
+  -_customerService: ICustomerService
+  -_customer: Customer
+  -_order: Order
+  -_appSettings: IAppSettings
+  
+  +FormPayment(app: IAppSettings, customer: Customer, 
+  {method}, order: Order, orderService: IOrderService
+  , customerService: ICustomerService)
+  -OnClickBtnSubmit(sender: object, e: EventArgs): void
+  -OnClickBtnClose(sender: object, e: EventArgs): void
+}
+FormPayment --|> FormNoCloseBase
+FormPayment -u-> IOrdersService
+FormPayment -u-> ICustomerService
+FormPayment -u-> Order
+FormPayment -u-> Customer
+
+
+class FormReceipt {
+  -_customer: Customer
+  -_order: Order
+  -_appSettings: IAppSettings
+  
+  +FormReceipt(app: IAppSettings, customer: Customer
+  , order: Order)
+  -OnClickBtnSubmit(sender: object, e: EventArgs): void
+  -OnClickBtnClose(sender: object, e: EventArgs): void
+}
+FormReceipt -u-> Order
+FormReceipt -u-> Customer
+FormReceipt --|> FormNoCloseBase
+
+
+}
+
+@enduml

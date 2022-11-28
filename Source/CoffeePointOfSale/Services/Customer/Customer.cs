@@ -4,11 +4,15 @@ namespace CoffeePointOfSale.Services.Customer;
 
 public class Customer
 {
-    public const string AnonymousCustomerId = "anonymous";
+    public const string AnonymousCustomerId = "000-000-000";
+    public const string AnonymousFirstName = "Anonymous";
+    public const string AnonymousLastName = "Anonymous";
 
 
     private string _phone = ""; //backing field for Phone property. only needed because the setter has logic to handle nulls and trimming spaces.
     private int _rewardPoints;
+    private string _firstName;
+    private string _lastName;
 
     public virtual string Phone
     {
@@ -30,6 +34,25 @@ public class Customer
             _rewardPoints = value;
         }
     }
+    public virtual string FirstName
+    {
+        get => _firstName;
+        set
+        {
+            if (IsAnonymous) return; //you cannot set name for the anonymous customer record
+            _firstName = value;
+        }
+    }
+    public virtual string LastName
+    {
+        get => _lastName;
+        set
+        {
+            if (IsAnonymous) return; //you cannot set name for the anonymous customer record
+            _lastName = value;
+        }
+    }
+
 
     [JsonIgnore]
     public virtual bool IsAnonymous => Phone == AnonymousCustomerId;
