@@ -1,4 +1,7 @@
-﻿using CoffeePointOfSale.Services.DrinkMenu;
+﻿using CoffeePointOfSale.Configuration;
+using CoffeePointOfSale.Services.Customer;
+using CoffeePointOfSale.Services.DrinkMenu;
+using CoffeePointOfSale.Services.Drinks;
 using CoffeePointOfSale.Services.FormFactory;
 using System;
 using System.Collections.Generic;
@@ -14,7 +17,12 @@ namespace CoffeePointOfSale.Forms
 {
     public partial class FormOrderDrink : Base.FormNoCloseBase
     {
+        private DrinkMenuService _drinkMenuService;
+        private Customer _customer;
+        private IAppSettings _appSettings;
+
         Pen backgroundpen = new Pen(Color.FromArgb(255, 242, 242, 242), 500);
+        DrinkMenu menu = new DrinkMenu();
         public FormOrderDrink()
         {
             InitializeComponent();
@@ -38,7 +46,13 @@ namespace CoffeePointOfSale.Forms
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
-            
+            foreach (Drink d in menu.List)
+            {
+                Button newDrink = new Button();
+                newDrink.Name = d.Name;
+                newDrink.Text = d.Name;
+                MenuTablePanel.Controls.Add(newDrink);
+            }
         }
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
