@@ -6,7 +6,7 @@ public class DrinkMenuService : IDrinkMenuService
 {
     private readonly IStorageService _storageService;
 
-    public DrinkMenu DrinkMenu { get; set; }
+    public DrinkMenu DrinkMenu { get; init; }
 
     public DrinkMenuService(IStorageService storageService)
     {
