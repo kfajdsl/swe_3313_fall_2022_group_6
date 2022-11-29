@@ -1,4 +1,5 @@
-﻿using CoffeePointOfSale.Services.FormFactory;
+﻿using CoffeePointOfSale.Services.DrinkMenu;
+using CoffeePointOfSale.Services.FormFactory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,25 @@ namespace CoffeePointOfSale.Forms
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            //Adds drink with customizations to the current order
+            //Leaves the current drink selection on the screen
+        }
+
+        private void btnProceedToPayment_Click(object sender, EventArgs e)
+        {
+            Close(); //closes this form
+            FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
+        }
+
+        private void btnDeleteDrinkItem_Click(object sender, EventArgs e)
+        {
+            //Removes the drink from the order
+            //Clear the drink from the order table panel
         }
     }
 }
