@@ -13,26 +13,36 @@ public partial class FormMain : FormBase
         InitializeComponent();
     }
 
-    private void OnClickBtnManagement(object sender, EventArgs e)
+    //Buttons: Onclick
+
+    private void OnClickBtnOrderDrink(object sender, EventArgs e)
+    {
+        Hide();
+        FormFactory.Get<FormOrderDrink>().Show();
+    }
+
+
+    private void OnClickBtnCustomerList(object sender, EventArgs e)
+    {
+        Hide();
+        FormFactory.Get<FormCustomerList>().Show();
+    }
+
+    private void OnClickBtnManagementTools(object sender, EventArgs e)
     {
         Hide();
         FormFactory.Get<FormManagement>().Show();
     }
 
-    private void OnFormMainClosed(object sender, FormClosedEventArgs e)
-    {
-        Application.Exit();
-    }
-
-    private void OnClickBtnCustomers(object sender, EventArgs e)
-    {
-        Hide();
-        FormFactory.Get<FormOrderDrink>().ShowDialog();
-    }
-
     private void label1_Click(object sender, EventArgs e)
     {
 
+    }
+
+
+    private void OnFormMainClosed(object sender, FormClosedEventArgs e)
+    {
+        Application.Exit();
     }
 
     private void panel1_Paint(object sender, PaintEventArgs e)
@@ -70,5 +80,8 @@ public partial class FormMain : FormBase
         e.Graphics.DrawRectangle(backgroundpen, 0, 0, 460, 464);
     }
 
-    
+    private void button2_Click(object sender, EventArgs e)
+    {
+
+    }
 }
