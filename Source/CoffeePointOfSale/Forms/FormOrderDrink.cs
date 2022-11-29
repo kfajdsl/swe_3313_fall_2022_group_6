@@ -34,5 +34,10 @@ namespace CoffeePointOfSale.Forms
         {
             e.Graphics.DrawRectangle(backgroundpen, 0, 0, 500, 500);
         }
+
+        private void FormOrderDrink_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

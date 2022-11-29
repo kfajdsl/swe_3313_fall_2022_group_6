@@ -36,7 +36,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Firebrick;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(12, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
