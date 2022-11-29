@@ -25,11 +25,6 @@ namespace CoffeePointOfSale.Forms
             FormFactory.Get<FormMain>().Show(); //re-opens the main form
         }
 
-        private void FormOrderDrink_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void SelectDrinkPanel_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(backgroundpen, 0, 0, 500, 500);
@@ -39,6 +34,5 @@ namespace CoffeePointOfSale.Forms
         {
             e.Graphics.DrawRectangle(backgroundpen, 0, 0, 500, 500);
         }
-
     }
 }

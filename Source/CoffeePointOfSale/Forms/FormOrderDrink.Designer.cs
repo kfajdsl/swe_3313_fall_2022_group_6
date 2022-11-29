@@ -41,10 +41,19 @@
             this.CustomizationPanel = new System.Windows.Forms.Panel();
             this.CustomizationLabel = new System.Windows.Forms.Label();
             this.DrinkCartPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.OrdersFlowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.DrinkItem = new System.Windows.Forms.Label();
+            this.SubtotalLabel = new System.Windows.Forms.Label();
+            this.TaxLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SelectDrinkPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.CustomizationPanel.SuspendLayout();
+            this.DrinkCartPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.OrdersFlowLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrderDrinkTitle
@@ -108,6 +117,7 @@
             // 
             this.SizeButton2.AutoSize = true;
             this.SizeButton2.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SizeButton2.Location = new System.Drawing.Point(3, 34);
             this.SizeButton2.Name = "SizeButton2";
             this.SizeButton2.Size = new System.Drawing.Size(65, 23);
@@ -120,6 +130,7 @@
             // 
             this.SizeButton3.AutoSize = true;
             this.SizeButton3.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SizeButton3.Location = new System.Drawing.Point(3, 65);
             this.SizeButton3.Name = "SizeButton3";
             this.SizeButton3.Size = new System.Drawing.Size(66, 23);
@@ -132,6 +143,7 @@
             // 
             this.SizeButton1.AutoSize = true;
             this.SizeButton1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SizeButton1.Location = new System.Drawing.Point(3, 3);
             this.SizeButton1.Name = "SizeButton1";
             this.SizeButton1.Size = new System.Drawing.Size(79, 23);
@@ -160,13 +172,13 @@
             this.MenuTablePanel.ColumnCount = 2;
             this.MenuTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MenuTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MenuTablePanel.Location = new System.Drawing.Point(21, 88);
+            this.MenuTablePanel.Location = new System.Drawing.Point(21, 64);
             this.MenuTablePanel.Name = "MenuTablePanel";
             this.MenuTablePanel.RowCount = 3;
             this.MenuTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MenuTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MenuTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MenuTablePanel.Size = new System.Drawing.Size(586, 149);
+            this.MenuTablePanel.Size = new System.Drawing.Size(586, 165);
             this.MenuTablePanel.TabIndex = 10;
             // 
             // MenuTitle
@@ -175,7 +187,7 @@
             this.MenuTitle.BackColor = System.Drawing.Color.Transparent;
             this.MenuTitle.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MenuTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.MenuTitle.Location = new System.Drawing.Point(20, 16);
+            this.MenuTitle.Location = new System.Drawing.Point(21, 5);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MenuTitle.Size = new System.Drawing.Size(146, 56);
@@ -207,11 +219,35 @@
             // 
             // DrinkCartPanel
             // 
+            this.DrinkCartPanel.Controls.Add(this.panel3);
             this.DrinkCartPanel.Location = new System.Drawing.Point(680, 112);
             this.DrinkCartPanel.Name = "DrinkCartPanel";
             this.DrinkCartPanel.Size = new System.Drawing.Size(627, 521);
             this.DrinkCartPanel.TabIndex = 6;
             this.DrinkCartPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DrinkCartPanel_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.TaxLabel);
+            this.panel3.Controls.Add(this.OrdersFlowLayout);
+            this.panel3.Controls.Add(this.SubtotalLabel);
+            this.panel3.Location = new System.Drawing.Point(21, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(587, 483);
+            this.panel3.TabIndex = 0;
+            // 
+            // OrdersFlowLayout
+            // 
+            this.OrdersFlowLayout.AutoScroll = true;
+            this.OrdersFlowLayout.AutoSize = true;
+            this.OrdersFlowLayout.Controls.Add(this.DrinkItem);
+            this.OrdersFlowLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.OrdersFlowLayout.Location = new System.Drawing.Point(10, 47);
+            this.OrdersFlowLayout.Name = "OrdersFlowLayout";
+            this.OrdersFlowLayout.Size = new System.Drawing.Size(568, 269);
+            this.OrdersFlowLayout.TabIndex = 0;
+            this.OrdersFlowLayout.WrapContents = false;
             // 
             // btnClose
             // 
@@ -226,6 +262,55 @@
             this.btnClose.Text = "Cancel";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.OnClickBtnClose);
+            // 
+            // DrinkItem
+            // 
+            this.DrinkItem.AutoSize = true;
+            this.DrinkItem.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DrinkItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.DrinkItem.Location = new System.Drawing.Point(3, 0);
+            this.DrinkItem.Name = "DrinkItem";
+            this.DrinkItem.Size = new System.Drawing.Size(106, 25);
+            this.DrinkItem.TabIndex = 0;
+            this.DrinkItem.Text = "DrinkItem";
+            // 
+            // SubtotalLabel
+            // 
+            this.SubtotalLabel.AutoSize = true;
+            this.SubtotalLabel.BackColor = System.Drawing.Color.White;
+            this.SubtotalLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SubtotalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.SubtotalLabel.Location = new System.Drawing.Point(13, 334);
+            this.SubtotalLabel.Name = "SubtotalLabel";
+            this.SubtotalLabel.Size = new System.Drawing.Size(90, 25);
+            this.SubtotalLabel.TabIndex = 1;
+            this.SubtotalLabel.Text = "Subtotal";
+            // 
+            // TaxLabel
+            // 
+            this.TaxLabel.AutoSize = true;
+            this.TaxLabel.BackColor = System.Drawing.Color.White;
+            this.TaxLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TaxLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.TaxLabel.Location = new System.Drawing.Point(13, 368);
+            this.TaxLabel.Name = "TaxLabel";
+            this.TaxLabel.Size = new System.Drawing.Size(42, 25);
+            this.TaxLabel.TabIndex = 2;
+            this.TaxLabel.Text = "Tax";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.label1.Location = new System.Drawing.Point(0, -12);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(146, 56);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Menu";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormOrderDrink
             // 
@@ -246,6 +331,11 @@
             this.tableLayoutPanel2.PerformLayout();
             this.CustomizationPanel.ResumeLayout(false);
             this.CustomizationPanel.PerformLayout();
+            this.DrinkCartPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.OrdersFlowLayout.ResumeLayout(false);
+            this.OrdersFlowLayout.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +359,16 @@
         private RadioButton SizeButton3;
         private RadioButton SizeButton1;
         private Panel CustomizationPanel;
+        private Panel panel3;
+        private FlowLayoutPanel OrdersFlowLayout;
+        private Label label1;
+        private Label TaxLabel;
+        private Label DrinkItem;
+        private Label SubtotalLabel;
+        private Button btnProceedToOrder;
+        private Label TaxPriceLabel;
+        private Label TotalPriceLabel;
+        private Label SubtotalPriceLabel;
+        private Label TotalLabel;
     }
 }
