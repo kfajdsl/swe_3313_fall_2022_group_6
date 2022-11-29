@@ -1,0 +1,157 @@
+@startuml
+
+
+skinparam classAttributeIconSize 0 
+
+package Services {
+package Storage {
+
+interface IStorageService {
+  +Read<T>(): T
+  +Write<T>(value: T): void
+}
+
+class StorageService {
+  +Read<T>(): T
+  +Write<T>(value: T): void
+  
+  {static} -CreateFileIfNotFound(filename: string): void
+  {static} -GetFileName<T>(): string
+}
+StorageService --|> IStorageService
+
+}
+
+package Customer {
+
+class Customer {
+  -_phone: string
+  -_rewardPoints: int
+  -_firstName: string
+  -_lastName: string
+  
+  <<property>> +Phone: string
+  <<property>> +RewardPoints: int
+  <<property>> +FirstName: string
+  <<property>> +LastName: string
+  
+  +IsAnonymous(): bool
+  +ToString(): string
+}
+
+class Customers {
+  -_customerDict: Dictionary<string, Customer>
+  
+  <<property>> +List: IReadOnlyList<Customer>
+  <<indexer>> +[phone: string]: Customer?
+  
+  +Add(Customer customer): bool
+}
+Customers o-- Customer
+
+interface ICustomerService {
+  <<property>> +Customers: Customers
+  +Write(): void
+}
+
+class CustomerService {
+  -_storageService: IStorageService
+  
+  <<property>> +Customers: Customers
+  
+  +CustomerService(storageService: IStorageService)
+  +Write(): void
+  
+  -CreateAnonymousCustomer(): void
+}
+ICustomerService <|-- CustomerService
+CustomerService o-- Customers
+CustomerService --> IStorageService
+
+}
+
+package Drinks {
+
+class Customization {
+  <<property>> +Name: string
+  <<property>> +Price: decimal
+  
+  +ToString(): string
+}
+
+class Drink {
+  <<property>> +Name: string
+  <<property>> +BaseDescription: string
+  <<property>> +Image: string
+  <<property>> +BasePrice: decimal
+  <<property>> +Customizations: List<Customization>
+  
+  +ToString(): string
+}
+Drink *-- Customization
+
+}
+
+package DrinkMenu {
+
+class DrinkMenu {
+  -_drinkList: List<Drink>
+  
+  <<property>> +List: IReadOnlyList<Drink>
+}
+DrinkMenu o-- Drink
+
+interface IDrinkMenuService {
+  <<property>> +DrinkMenu: DrinkMenu
+  
+  +Write(): void
+}
+
+class DrinkMenuService {
+  -_storageService: IStorageService
+  
+  <<property>> +DrinkMenu: DrinkMenu
+  
+  +DrinkMenuService(storageService: IStorageService)
+  +Write(): void
+}
+IDrinkMenuService <|-- DrinkMenuService
+DrinkMenuService o-- DrinkMenu
+DrinkMenuService --> IStorageService
+
+}
+
+package Orders {
+
+class Order {
+  -_drinkList: List<Drink>
+
+  <<property>> +List: IReadOnlyList<Drink>
+  <<property>> +CustomerID: string
+  
+  +AddDrink(drink: Drink): void
+}
+Order o-- Drink
+
+interface IOrdersService {
+  +SubmitOrder(order: Order): void 
+  +Write(): void
+}
+
+class OrdersService {
+  -_storageService: IStorageService
+  -_orderList: List<Order>
+  
+  +OrdersService(storageService: IStorageService)
+  +SubmitOrder(order: Order): void
+  +Write(): void
+  +WriteToCSV(): void
+}
+IOrdersService <|-- OrdersService
+OrdersService o-- Order
+OrdersService --> IStorageService
+
+}
+}
+
+@enduml
