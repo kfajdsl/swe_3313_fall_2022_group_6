@@ -78,7 +78,7 @@ sealed partial class FormMain
             this.button1.TabIndex = 2;
             this.button1.Text = "Customer List";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.OnClickBtnCustomers);
             // 
             // button2
             // 
@@ -127,6 +127,7 @@ sealed partial class FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1332, 682);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);

@@ -34,14 +34,16 @@ public class FormBase : Form
 
     private void InitializeComponent()
     {
-        SuspendLayout();
-        // 
-        // FormBase
-        // 
-        ClientSize = new Size(1348, 721);
-        Name = "FormBase";
-        StartPosition = FormStartPosition.CenterScreen;
-        ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // FormBase
+            // 
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1332, 682);
+            this.Name = "FormBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ResumeLayout(false);
+
     }
 
     /// <summary>

@@ -33,10 +33,10 @@ public class FormNoCloseBase : FormBase
             // 
             // FormNoCloseBase
             // 
-
-            this.ClientSize = new System.Drawing.Size(1348, 721);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1332, 682);
             this.Name = "FormNoCloseBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 
     }

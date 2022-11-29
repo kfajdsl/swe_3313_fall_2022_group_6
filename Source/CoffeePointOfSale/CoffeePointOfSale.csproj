@@ -9,11 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\FormMain - Copy.cs" />
+    <Compile Remove="Forms\FormMain - Copy.Designer.cs" />
     <Compile Remove="Forms\Payment.cs" />
     <Compile Remove="Forms\Payment.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Forms\FormMain - Copy.resx" />
     <EmbeddedResource Remove="Forms\Payment.resx" />
   </ItemGroup>
 

@@ -19,6 +19,12 @@ public partial class FormMain : FormBase
         FormFactory.Get<FormManagement>().ShowDialog();
     }
 
+    private void OnClickBtnCustomers(object sender, EventArgs e)
+    {
+        Hide();
+        FormFactory.Get<FormOrderDrink>().ShowDialog();
+    }
+
     private void label1_Click(object sender, EventArgs e)
     {
 
