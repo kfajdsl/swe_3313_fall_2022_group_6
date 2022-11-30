@@ -216,6 +216,7 @@ namespace CoffeePointOfSale.Forms
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
+            newOrder.CustomerID = _customerService.CurrentCustomer.Phone;
             _customerService.CurrentOrder = newOrder;
             newOrder = new Order();
             Close(); //closes this form
