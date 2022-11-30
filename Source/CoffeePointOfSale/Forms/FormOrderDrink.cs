@@ -22,7 +22,6 @@ namespace CoffeePointOfSale.Forms
         private IAppSettings _appSettings;
 
         Pen backgroundpen = new Pen(Color.FromArgb(255, 242, 242, 242), 500);
-        DrinkMenu menu = new DrinkMenu();
         public FormOrderDrink()
         {
             InitializeComponent();
@@ -46,7 +45,7 @@ namespace CoffeePointOfSale.Forms
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
-            foreach (Drink d in menu.List)
+            foreach (Drink d in _drinkMenuService.DrinkMenu.List)
             {
                 Button newDrink = new Button();
                 newDrink.Name = d.Name;
