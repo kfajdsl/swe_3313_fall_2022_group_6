@@ -325,6 +325,7 @@
             this.btnDeleteDrinkItem.Size = new System.Drawing.Size(69, 69);
             this.btnDeleteDrinkItem.TabIndex = 0;
             this.btnDeleteDrinkItem.UseVisualStyleBackColor = false;
+            this.btnDeleteDrinkItem.Visible = false;
             this.btnDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
             // 
             // ExampleDrinkItem
@@ -339,6 +340,7 @@
             this.ExampleDrinkItem.TabIndex = 1;
             this.ExampleDrinkItem.Text = "DrinkItem";
             this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ExampleDrinkItem.Visible = false;
             // 
             // SubtotalPriceLabel
             // 

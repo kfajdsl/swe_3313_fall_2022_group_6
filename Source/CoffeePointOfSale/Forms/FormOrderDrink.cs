@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CoffeePointOfSale.Forms
 {
@@ -170,10 +171,10 @@ namespace CoffeePointOfSale.Forms
             btnNewDeleteDrinkItem.Name = "btnDeleteDrinkItem";
             btnNewDeleteDrinkItem.Size = new System.Drawing.Size(69, 69);
             btnNewDeleteDrinkItem.TabIndex = 0;
+            btnNewDeleteDrinkItem.Tag = activeDrink;
             btnNewDeleteDrinkItem.UseVisualStyleBackColor = false;
             btnNewDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
             CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
-
 
             // Creates the drink info label
             decimal subtotal = activeDrink.getTotal();
@@ -208,14 +209,20 @@ namespace CoffeePointOfSale.Forms
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
             _customerService.CurrentOrder = newOrder;
+            //newOrder = new Order();
             Close(); //closes this form
             FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
         }
 
         private void btnDeleteDrinkItem_Click(object sender, EventArgs e)
         {
-            //Removes the drink from the order
-            //Clear the drink from the order table panel
+            Button deleteButton = (sender as Button);
+            newOrder.Drinks.Remove(deleteButton.Tag as Drink);
+            newOrder.Total -= (deleteButton.Tag as Drink).getTotal();
+            newOrder.SubTotal -= activeDrink.getTotal();
+            newOrder.Tax -= Decimal.Round(Decimal.Multiply(activeDrink.getTotal(), _appSettings.Tax.Rate), 2);
+            CurrentDrinkOrderTable.Controls.RemoveAt(deleteButton.TabIndex+1);
+            CurrentDrinkOrderTable.Controls.Remove(deleteButton);
         }
 
         private void btnCustomization_Click(object sender, EventArgs e)
