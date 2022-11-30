@@ -50,10 +50,16 @@ namespace CoffeePointOfSale.Forms
             TotalPriceLabel.Text = "$" + _customerService.CurrentOrder.Total;
 
             Customer customer = _customerService.CurrentCustomer;
+            int costInRewardsPoints = (int)Math.Ceiling(Decimal.Multiply(_customerService.CurrentOrder.Total, (decimal)_appSettings.Rewards.PointsPerDollar));
             if (customer.IsAnonymous)
             {
                 RewardsPanel.Visible = false;
+            } else
+            {
+                CustomerRewardsLabel.Text = ""+customer.RewardPoints;
+                OrderRewardsCost.Text = ""+costInRewardsPoints;
             }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
