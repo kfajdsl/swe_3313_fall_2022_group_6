@@ -44,11 +44,14 @@ namespace CoffeePointOfSale.Forms
                 Button _button = new Button();
                 _button.Text = "Order";
                 _button.Tag = customer.Phone;
+                _button.Anchor = System.Windows.Forms.AnchorStyles.None;
+                _button.Size = new System.Drawing.Size(137, 50);
                 _button.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
                 _button.TextAlign = ContentAlignment.TopCenter;
                 _button.BackColor = Color.FromArgb(119, 211, 83);
                 _button.ForeColor = Color.White;
                 _button.Click += new System.EventHandler(this.Customer_Click);
+
 
                 _label1.Text = customer.LastName;
                 _label2.Text = customer.FirstName;
