@@ -52,7 +52,8 @@ namespace CoffeePointOfSale.Forms.Base
         //Validates the Phone Number
         private void PhoneTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (PhoneTextBox.Text.Length == 0)
+            //Phone validation, 10 digits and 2 dashes, and not already on the Customers
+            if (PhoneTextBox.Text.Length != 10 + 2 || _customerService.Customers[PhoneTextBox.Text] != null)
                 validPhone = false;
             else
                 validPhone = true;
