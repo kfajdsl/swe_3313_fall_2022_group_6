@@ -64,6 +64,7 @@ namespace CoffeePointOfSale.Forms
             CustomizationPanel.Enabled = true;
             CustomizationPanel.Visible = true;
             CustomizationPanel.BackColor = Color.White;
+            CustomizationLabel.Text = drinkButton.Text;
         }
         private void newCustomization_Click(object sender, EventArgs e)
         {
@@ -73,6 +74,7 @@ namespace CoffeePointOfSale.Forms
             // Adds the new customization to the active drink
             Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
             activeDrink.Customizations.Add(newCustomization);
+            customizationButton.BackColor = Color.FromArgb(119, 221, 83);
         }
         // Changes the size from the small radio button
         private void SizeButton1_CheckedChanged(object sender, EventArgs e)
