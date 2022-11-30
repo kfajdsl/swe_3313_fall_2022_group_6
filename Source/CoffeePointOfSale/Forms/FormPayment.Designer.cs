@@ -243,7 +243,7 @@
             // 
             // btnPayWithRewards
             // 
-            this.btnPayWithRewards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
+            this.btnPayWithRewards.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnPayWithRewards.Enabled = false;
             this.btnPayWithRewards.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPayWithRewards.ForeColor = System.Drawing.Color.White;
@@ -254,6 +254,7 @@
             this.btnPayWithRewards.TabIndex = 22;
             this.btnPayWithRewards.Text = "Pay with Rewards";
             this.btnPayWithRewards.UseVisualStyleBackColor = false;
+            this.btnPayWithRewards.Click += new System.EventHandler(this.btnPayWithRewards_Click);
             // 
             // OrderRewardsCost
             // 

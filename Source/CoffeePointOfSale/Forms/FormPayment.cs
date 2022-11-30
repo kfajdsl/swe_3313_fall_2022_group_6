@@ -58,6 +58,11 @@ namespace CoffeePointOfSale.Forms
             {
                 CustomerRewardsLabel.Text = ""+customer.RewardPoints;
                 OrderRewardsCost.Text = ""+costInRewardsPoints;
+                if (customer.RewardPoints >= costInRewardsPoints)
+                {
+                    btnPayWithRewards.Enabled = true;
+                    btnPayWithRewards.BackColor = Color.FromArgb(119, 221, 83);
+                }
             }
 
             CreditCardTextInput.Tag = CreditCardTextInput.Text;
@@ -100,7 +105,16 @@ namespace CoffeePointOfSale.Forms
         private void btnEditOrder_Click(object sender, EventArgs e)
         {
             Close(); //closes this form
-            FormFactory.Get<FormOrderDrink>().Show(); //re-opens the main form
+            FormFactory.Get<FormOrderDrink>().Show(); //re-opens the order form
+        }
+
+        private void btnPayWithRewards_Click(object sender, EventArgs e)
+        {
+            int costInRewardsPoints = (int)Math.Ceiling(Decimal.Multiply(_customerService.CurrentOrder.Total, (decimal)_appSettings.Rewards.PointsPerDollar));
+            _customerService.CurrentCustomer.RewardPoints -= costInRewardsPoints;
+            _customerService.CurrentOrder.PointsRedeemed = costInRewardsPoints;
+            Close(); //closes this form
+            FormFactory.Get<FormReceipt>().Show(); //opens the receipt form
         }
     }
 }
