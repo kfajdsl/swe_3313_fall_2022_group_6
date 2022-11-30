@@ -142,6 +142,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(685, 236);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
@@ -183,6 +184,7 @@
             this.RewardsPointsLabel.Size = new System.Drawing.Size(24, 25);
             this.RewardsPointsLabel.TabIndex = 23;
             this.RewardsPointsLabel.Text = "0";
+            this.RewardsPointsLabel.Click += new System.EventHandler(this.RewardsPointsLabel_Click);
             // 
             // SubtotalTitle
             // 
@@ -209,6 +211,7 @@
             this.RewardsPointsRemainingTitle.Size = new System.Drawing.Size(289, 25);
             this.RewardsPointsRemainingTitle.TabIndex = 22;
             this.RewardsPointsRemainingTitle.Text = "Reward Points Remaining ";
+            this.RewardsPointsRemainingTitle.Click += new System.EventHandler(this.RewardsPointsRemainingTitle_Click);
             // 
             // TaxTitle
             // 
@@ -262,6 +265,7 @@
             this.PaidWithLabel.Size = new System.Drawing.Size(235, 25);
             this.PaidWithLabel.TabIndex = 19;
             this.PaidWithLabel.Text = "Paid with Credit Card";
+            this.PaidWithLabel.Click += new System.EventHandler(this.PaidWithLabel_Click);
             // 
             // SubtotalPriceLabel
             // 
@@ -316,7 +320,7 @@
             this.CustomerNameLabel.Size = new System.Drawing.Size(241, 33);
             this.CustomerNameLabel.TabIndex = 15;
             this.CustomerNameLabel.Text = "First Last";
-            this.CustomerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CustomerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CustomerNameTitle
             // 
@@ -330,7 +334,7 @@
             this.CustomerNameTitle.Size = new System.Drawing.Size(241, 33);
             this.CustomerNameTitle.TabIndex = 14;
             this.CustomerNameTitle.Text = "Customer Name";
-            this.CustomerNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CustomerNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // OrderNumberPanel
             // 
@@ -344,10 +348,10 @@
             // OrderNumberLabel
             // 
             this.OrderNumberLabel.AutoSize = true;
-            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OrderNumberLabel.Location = new System.Drawing.Point(13, 13);
             this.OrderNumberLabel.Name = "OrderNumberLabel";
-            this.OrderNumberLabel.Size = new System.Drawing.Size(30, 31);
+            this.OrderNumberLabel.Size = new System.Drawing.Size(19, 20);
             this.OrderNumberLabel.TabIndex = 0;
             this.OrderNumberLabel.Text = "0";
             // 
