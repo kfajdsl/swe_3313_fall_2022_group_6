@@ -1,5 +1,6 @@
 using CoffeePointOfSale.Configuration;
 using CoffeePointOfSale.Forms.Base;
+using CoffeePointOfSale.Services.Customer;
 using CoffeePointOfSale.Services.FormFactory;
 using System.Windows.Forms;
 
@@ -7,9 +8,11 @@ namespace CoffeePointOfSale.Forms;
 
 public partial class FormMain : FormBase
 {
+    ICustomerService _customerService;
     Pen backgroundpen = new Pen(Color.FromArgb(255, 150, 159, 170), 500);
-    public FormMain(IAppSettings appSettings) : base(appSettings)
+    public FormMain(ICustomerService customerService, IAppSettings appSettings) : base(appSettings)
     {
+        _customerService = customerService;
         InitializeComponent();
     }
 
@@ -17,6 +20,7 @@ public partial class FormMain : FormBase
 
     private void OnClickBtnOrderDrink(object sender, EventArgs e)
     {
+        _customerService.CurrentCustomer = _customerService.Customers["anonymous"];
         Hide();
         FormFactory.Get<FormOrderDrink>().Show();
     }
