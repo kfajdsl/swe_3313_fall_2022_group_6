@@ -41,7 +41,7 @@ namespace CoffeePointOfSale.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             Hide();
-            FormFactory.Get<FormOrderDrink>().Show();
+            FormFactory.Get<FormMain>().Show();
         }
 
         private void customerListTableLayoutPanel1_Paint(object sender, PaintEventArgs e)

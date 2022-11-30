@@ -53,6 +53,10 @@ namespace CoffeePointOfSale.Forms
                 newDrink.Text = d.Name;
                 MenuTablePanel.Controls.Add(newDrink);
             }
+            Label testBtn = new Label();
+            testBtn.Name = "test";
+            testBtn.Text = "test";
+            MenuTablePanel.Controls.Add(testBtn);
         }
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
