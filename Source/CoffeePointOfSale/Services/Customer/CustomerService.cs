@@ -12,12 +12,19 @@ public class CustomerService : ICustomerService
     private readonly IStorageService _storageService;
     public Customers Customers { get; init; }
 
+    // MUST BE SET PROPERLY BEFORE USE
+    public Customer CurrentCustomer { get; set; }
+
+    // MUST BE SET PROPERLY BEFORE USE
+    public Order CurrentOrder { get; set; } = new Order();
+
     public CustomerService(IStorageService storageService)
     {
         _storageService = storageService;
         Customers = _storageService.Read<Customers>(); //load customers from JSON file
 
         CreateAnonymousCustomer();
+        CurrentCustomer = Customers[Customer.AnonymousCustomerId]; // decent default
     }
 
     private void CreateAnonymousCustomer()
