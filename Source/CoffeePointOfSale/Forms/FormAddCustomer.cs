@@ -1,68 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CoffeePointOfSale.Forms.Base;
-using CoffeePointOfSale.Services.FormFactory;
+﻿using CoffeePointOfSale.Services.FormFactory;
+using CoffeePointOfSale.Services.Customer;
 
-namespace CoffeePointOfSale.Forms
+namespace CoffeePointOfSale.Forms.Base
 {
     public partial class FormAddCustomer : FormNoCloseBase
     {
-        public FormAddCustomer()
+        //Customer Service to add a new customer
+        private ICustomerService _customerService;
+
+        //Control the user input for every text field
+        bool validFirstName = false, 
+            validLastName = false, 
+            validPhone = false;
+
+        //Constructor
+        public FormAddCustomer(ICustomerService customerService)
         {
+            _customerService= customerService;
             InitializeComponent();
         }
 
+        //Change the color of the button if the input is valid
+        private void updateBtnColor()
+        {
+            if (validFirstName && validLastName && validPhone)
+                btnAddCustomer.BackColor = Color.FromArgb(119, 211, 83);
+            else
+                btnAddCustomer.BackColor = Color.DarkGray;
+        }
+
+        //Validates the First Name
+        private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (FirstNameTextBox.Text.Length == 0)
+                validFirstName = false;
+            else
+                validFirstName = true;
+            updateBtnColor();
+        }
+
+        //Validates the Last Name
+        private void LastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (LastNameTextBox.Text.Length == 0)
+                validLastName = false;
+            else
+                validLastName = true;
+            updateBtnColor();
+        }
+
+        //Validates the Phone Number
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (PhoneTextBox.Text.Length == 0)
+                validPhone = false;
+            else
+                validPhone = true;
+            updateBtnColor();
+        }
+
+        //Goes back to the Main Form
         private void btnClose_Click(object sender, EventArgs e)
         {
             Hide();
             FormFactory.Get<FormMain>().Show();
         }
 
-        private void CustomerListTitle_Click(object sender, EventArgs e)
+        //If the input is valid, Add the customer and continue to the Order Form
+        private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            if (validFirstName && validLastName && validPhone) {
+                //Creates a customer
+                string firstName = FirstNameTextBox.Text.Trim(),
+                    lastName = LastNameTextBox.Text.Trim(),
+                    phone =PhoneTextBox.Text.Trim();
+                Customer customer = new Customer
+                {
+                    Phone = phone,
+                    RewardPoints = 0,
+                    FirstName = firstName,
+                    LastName = lastName
+                };
 
-        }
+                //Adds to the dictionary
+                _customerService.Customers.Add(customer);
+                //Saves to JSON
+                _customerService.Write();
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(  
-                (textBox1).Text.Length > 0 &&
-                (textBox2).Text.Length > 0 &&
-                (textBox3).Text.Length > 0
-            )
-            {
-
-            }
-            else
-            {
-
+                //Goes back to the Order Form
+                
+                Hide();
+                FormFactory.Get<FormOrderDrink>().Show();
             }
         }
     }
