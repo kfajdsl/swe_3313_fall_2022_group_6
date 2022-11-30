@@ -18,6 +18,8 @@ namespace CoffeePointOfSale.Forms
     {
         private ICustomerService _customerService;
         private IAppSettings _appSettings;
+
+        private int _costInRewardsPoints;
         public FormPayment(ICustomerService customerService, IAppSettings appSettings) : base(appSettings)
         {
             _customerService = customerService;
@@ -50,15 +52,16 @@ namespace CoffeePointOfSale.Forms
             TotalPriceLabel.Text = "$" + _customerService.CurrentOrder.Total;
 
             Customer customer = _customerService.CurrentCustomer;
-            int costInRewardsPoints = (int)Math.Ceiling(Decimal.Multiply(_customerService.CurrentOrder.Total, (decimal)_appSettings.Rewards.PointsPerDollar));
+            _costInRewardsPoints = (int)Math.Ceiling(Decimal.Multiply(_customerService.CurrentOrder.Total, (decimal)_appSettings.Rewards.PointsPerDollar));
             if (customer.IsAnonymous)
             {
                 RewardsPanel.Visible = false;
             } else
             {
+                RewardsPanel.Visible = true;
                 CustomerRewardsLabel.Text = ""+customer.RewardPoints;
-                OrderRewardsCost.Text = ""+costInRewardsPoints;
-                if (customer.RewardPoints >= costInRewardsPoints)
+                OrderRewardsCost.Text = ""+_costInRewardsPoints;
+                if (customer.RewardPoints >= _costInRewardsPoints)
                 {
                     btnPayWithRewards.Enabled = true;
                     btnPayWithRewards.BackColor = Color.FromArgb(119, 221, 83);
@@ -75,6 +78,18 @@ namespace CoffeePointOfSale.Forms
 
             //btnPayWithCard
             //btnPayWithRewards 
+        }
+        private void btnPayWithRewards_Click(object sender, EventArgs e)
+        {
+            _customerService.CurrentCustomer.RewardPoints -= _costInRewardsPoints;
+            _customerService.CurrentOrder.PointsRedeemed = _costInRewardsPoints;
+            Close(); //closes this form
+            FormFactory.Get<FormReceipt>().Show(); //opens the receipt form
+        }
+
+        private void btnPayWithCard_Click(object sender, EventArgs e)
+        {
+
         }
         
         
@@ -108,13 +123,5 @@ namespace CoffeePointOfSale.Forms
             FormFactory.Get<FormOrderDrink>().Show(); //re-opens the order form
         }
 
-        private void btnPayWithRewards_Click(object sender, EventArgs e)
-        {
-            int costInRewardsPoints = (int)Math.Ceiling(Decimal.Multiply(_customerService.CurrentOrder.Total, (decimal)_appSettings.Rewards.PointsPerDollar));
-            _customerService.CurrentCustomer.RewardPoints -= costInRewardsPoints;
-            _customerService.CurrentOrder.PointsRedeemed = costInRewardsPoints;
-            Close(); //closes this form
-            FormFactory.Get<FormReceipt>().Show(); //opens the receipt form
-        }
     }
 }
