@@ -60,6 +60,35 @@ namespace CoffeePointOfSale.Forms
                 OrderRewardsCost.Text = ""+costInRewardsPoints;
             }
 
+            CreditCardTextInput.Tag = CreditCardTextInput.Text;
+            CreditCardTextInput.GotFocus += new EventHandler(this.PlaceholderGotFocus);
+            CreditCardTextInput.LostFocus += new EventHandler(this.PlaceholderLostFocus);
+
+            CVVTextBox.Tag = CVVTextBox.Text;
+            CVVTextBox.GotFocus += new EventHandler(this.PlaceholderGotFocus);
+            CVVTextBox.LostFocus += new EventHandler(this.PlaceholderLostFocus);
+
+            //btnPayWithCard
+            //btnPayWithRewards 
+        }
+        
+        
+        public void PlaceholderGotFocus(object sender, EventArgs e)
+        {
+            var txtBox = (sender as TextBox);
+            var placeholder = (txtBox.Tag as string);
+            if (txtBox.Text == placeholder) 
+            {
+                txtBox.Text = "";
+            }
+        }
+        
+        public void PlaceholderLostFocus(object sender, EventArgs e)
+        {
+            var txtBox = (sender as TextBox);
+            var placeholder = (txtBox.Tag as string);
+            if (string.IsNullOrWhiteSpace(txtBox.Text))
+                txtBox.Text = placeholder;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
