@@ -48,6 +48,12 @@ namespace CoffeePointOfSale.Forms
             SubtotalPriceLabel.Text = "$" + _customerService.CurrentOrder.SubTotal;
             TaxPriceLabel.Text = "$" + _customerService.CurrentOrder.Tax;
             TotalPriceLabel.Text = "$" + _customerService.CurrentOrder.Total;
+
+            Customer customer = _customerService.CurrentCustomer;
+            if (customer.IsAnonymous)
+            {
+                RewardsPanel.Visible = false;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
