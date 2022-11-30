@@ -30,7 +30,7 @@
         {
             this.btnClose = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.OrderDrinkTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -49,23 +49,28 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.button2.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(459, 254);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(397, 158);
             this.button2.TabIndex = 2;
             this.button2.Text = "Generate Report";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // OrderDrinkTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(437, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(432, 89);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Management";
+            this.OrderDrinkTitle.AutoSize = true;
+            this.OrderDrinkTitle.Font = new System.Drawing.Font("Lato", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderDrinkTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.OrderDrinkTitle.Location = new System.Drawing.Point(397, 11);
+            this.OrderDrinkTitle.Name = "OrderDrinkTitle";
+            this.OrderDrinkTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.OrderDrinkTitle.Size = new System.Drawing.Size(540, 102);
+            this.OrderDrinkTitle.TabIndex = 4;
+            this.OrderDrinkTitle.Text = "Management";
+            this.OrderDrinkTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormManagement
             // 
@@ -73,13 +78,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1332, 682);
-            this.ControlBox = false;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.OrderDrinkTitle);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnClose);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormManagement";
             this.Text = "FormManagement";
             this.Load += new System.EventHandler(this.OnLoadFormManagement);
@@ -92,6 +94,6 @@
 
         private Button btnClose;
         private Button button2;
-        private Label label1;
+        private Label OrderDrinkTitle;
     }
 }

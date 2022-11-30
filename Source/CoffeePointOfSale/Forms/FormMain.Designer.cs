@@ -57,11 +57,11 @@ sealed partial class FormMain
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 80.24999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Lato", 80.24999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.label1.Location = new System.Drawing.Point(380, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(589, 120);
+            this.label1.Size = new System.Drawing.Size(598, 129);
             this.label1.TabIndex = 1;
             this.label1.Text = "Main Menu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
