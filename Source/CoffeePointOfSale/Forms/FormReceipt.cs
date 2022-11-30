@@ -22,7 +22,7 @@ namespace CoffeePointOfSale.Forms
 
 
         //Constructor
-        public FormReceipt(ICustomerService customerService, IAppSettings ap)
+        public FormReceipt(IAppSettings ap, ICustomerService customerService) : base(ap)
         {
             _customerService = customerService;
             InitializeComponent();

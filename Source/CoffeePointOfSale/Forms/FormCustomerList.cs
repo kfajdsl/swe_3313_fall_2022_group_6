@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CoffeePointOfSale.Forms.Base;
 using CoffeePointOfSale.Services.FormFactory;
 using CoffeePointOfSale.Services.Customer;
+using CoffeePointOfSale.Configuration;
 
 namespace CoffeePointOfSale.Forms
 {
@@ -19,7 +20,7 @@ namespace CoffeePointOfSale.Forms
         private readonly ICustomerService _customerService;
 
         //Constructor
-        public FormCustomerList(ICustomerService customerService)
+        public FormCustomerList(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
         {
             _customerService = customerService;
             InitializeComponent();

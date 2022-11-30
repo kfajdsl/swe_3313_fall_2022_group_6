@@ -1,5 +1,6 @@
 ﻿using CoffeePointOfSale.Services.FormFactory;
 using CoffeePointOfSale.Services.Customer;
+using CoffeePointOfSale.Configuration;
 
 namespace CoffeePointOfSale.Forms.Base
 {
@@ -14,7 +15,7 @@ namespace CoffeePointOfSale.Forms.Base
             validPhone = false;
 
         //Constructor
-        public FormAddCustomer(ICustomerService customerService)
+        public FormAddCustomer(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
         {
             _customerService= customerService;
             InitializeComponent();
