@@ -21,7 +21,7 @@ public class Drink
         }
         customizationsBuilder.Length--; // remove the comma after the last item
 
-        return $"${totalPrice.ToString("F")} {Name} {customizationsBuilder.ToString()}";
+        return $"${totalPrice.ToString("F")} {Name} {customizationsBuilder}";
     }
     public decimal getTotal()
     {

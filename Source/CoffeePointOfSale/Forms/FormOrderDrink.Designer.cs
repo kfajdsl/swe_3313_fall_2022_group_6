@@ -172,9 +172,10 @@
             // 
             this.CustomizationsTablePanel.AutoScroll = true;
             this.CustomizationsTablePanel.BackColor = System.Drawing.Color.White;
-            this.CustomizationsTablePanel.ColumnCount = 1;
-            this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CustomizationsTablePanel.Location = new System.Drawing.Point(10, 80);
+            this.CustomizationsTablePanel.ColumnCount = 2;
+            this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.CustomizationsTablePanel.Location = new System.Drawing.Point(10, 64);
             this.CustomizationsTablePanel.Name = "CustomizationsTablePanel";
             this.CustomizationsTablePanel.RowCount = 3;
             this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
