@@ -8,6 +8,7 @@
       "Tax": 0.65,
       "Subtotal": 10.75,
       "PointsEarned": 114,
+      "PointsRedeemed": 0,
       "PaymentMethod": "Credit",
       "Drinks": [
         {
@@ -48,6 +49,7 @@
       "Tax": 0.75,
       "Subtotal": 12.50,
       "PointsEarned": 0,
+      "PointsRedeemed":  1250,
       "PaymentMethod": "Rewards",
       "Drinks": [
         {
@@ -88,6 +90,7 @@
       "Tax": 0.75,
       "Subtotal": 12.50,
       "PointsEarned": 132,
+      "PointsRedeemed":  0,
       "PaymentMethod": "Credit",
       "Drinks": [
         {
