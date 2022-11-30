@@ -20,7 +20,7 @@ public partial class FormMain : FormBase
 
     private void OnClickBtnOrderDrink(object sender, EventArgs e)
     {
-        _customerService.CurrentCustomer = _customerService.Customers["anonymous"];
+        _customerService.CurrentCustomer = _customerService.Customers[Customer.AnonymousCustomerId];
         Hide();
         FormFactory.Get<FormOrderDrink>().Show();
     }
