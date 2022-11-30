@@ -170,10 +170,8 @@ namespace CoffeePointOfSale.Forms
             btnNewDeleteDrinkItem.Name = "btnDeleteDrinkItem";
             btnNewDeleteDrinkItem.Size = new System.Drawing.Size(69, 69);
             btnNewDeleteDrinkItem.TabIndex = 0;
-            btnNewDeleteDrinkItem.Tag = activeDrink;
             btnNewDeleteDrinkItem.UseVisualStyleBackColor = false;
             btnNewDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
-            CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
 
             // Creates the drink info label
             decimal subtotal = activeDrink.getTotal();
@@ -190,6 +188,9 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.TabIndex = 1;
             DrinkItem.Text = "" + activeDrink.Name + ": " + activeDrink + " $" + total;
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            btnNewDeleteDrinkItem.Tag = new {drinkItem = activeDrink, drinkLabel = DrinkItem};
+            CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
             CurrentDrinkOrderTable.Controls.Add(DrinkItem);
 
             newOrder.Drinks.Add(activeDrink);
@@ -216,12 +217,17 @@ namespace CoffeePointOfSale.Forms
         private void btnDeleteDrinkItem_Click(object sender, EventArgs e)
         {
             Button deleteButton = (sender as Button);
-            newOrder.Drinks.Remove(deleteButton.Tag as Drink);
-            newOrder.Total -= (deleteButton.Tag as Drink).getTotal();
-            newOrder.SubTotal -= activeDrink.getTotal();
-            newOrder.Tax -= Decimal.Round(Decimal.Multiply(activeDrink.getTotal(), _appSettings.Tax.Rate), 2);
-            CurrentDrinkOrderTable.Controls.RemoveAt(deleteButton.TabIndex+1);
+            Drink deleteDrink = ((dynamic)deleteButton.Tag).drinkItem;
+            Label deleteLabel = ((dynamic)deleteButton.Tag).drinkLabel;
+            newOrder.Drinks.Remove(deleteDrink);
+            newOrder.SubTotal -= deleteDrink.getTotal();
+            newOrder.Tax -= Decimal.Round(Decimal.Multiply(deleteDrink.getTotal(), _appSettings.Tax.Rate), 2);
+            newOrder.Total -= (deleteDrink.getTotal() + Decimal.Round(Decimal.Multiply(deleteDrink.getTotal(), _appSettings.Tax.Rate), 2));
+            CurrentDrinkOrderTable.Controls.Remove(deleteLabel);
             CurrentDrinkOrderTable.Controls.Remove(deleteButton);
+            SubtotalPriceLabel.Text = "$" + newOrder.SubTotal;
+            TaxPriceLabel.Text = "$" + newOrder.Tax;
+            TotalPriceLabel.Text = "$" + newOrder.Total;
         }
 
         private void btnCustomization_Click(object sender, EventArgs e)
