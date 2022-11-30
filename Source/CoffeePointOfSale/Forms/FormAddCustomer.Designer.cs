@@ -100,14 +100,14 @@
             this.MenuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MenuTitle.Size = new System.Drawing.Size(233, 25);
             this.MenuTitle.TabIndex = 9;
-            this.MenuTitle.Text = "Costumer First Name";
+            this.MenuTitle.Text = "Customer First Name";
             this.MenuTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FirstNameTextBox
             // 
             this.FirstNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.FirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstNameTextBox.Location = new System.Drawing.Point(262, 3);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(283, 3);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(628, 31);
             this.FirstNameTextBox.TabIndex = 10;
@@ -117,7 +117,7 @@
             // 
             this.LastNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.LastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LastNameTextBox.Location = new System.Drawing.Point(262, 114);
+            this.LastNameTextBox.Location = new System.Drawing.Point(283, 114);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(628, 31);
             this.LastNameTextBox.TabIndex = 12;
@@ -134,14 +134,14 @@
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(231, 25);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Costumer Last Name";
+            this.label3.Text = "Customer Last Name";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PhoneTextBox
             // 
             this.PhoneTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.PhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PhoneTextBox.Location = new System.Drawing.Point(262, 225);
+            this.PhoneTextBox.Location = new System.Drawing.Point(283, 225);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(628, 31);
             this.PhoneTextBox.TabIndex = 14;
@@ -156,9 +156,9 @@
             this.label4.Location = new System.Drawing.Point(3, 222);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(253, 25);
+            this.label4.Size = new System.Drawing.Size(274, 25);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Costumer Phone Name";
+            this.label4.Text = "Customer Phone Number";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAddCustomer
