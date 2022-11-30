@@ -70,7 +70,7 @@ namespace CoffeePointOfSale.Forms
             if (_customerService.CurrentOrder.PaymentMethod == OrderPaymentMethod.Credit)   //Credit Card
             {
                 TotalPaidLabel.Text = "$" + _customerService.CurrentOrder.Total;
-                CreditCardNumberLabel.Text = "xxxx-xxxx-xxxx-" + _customerService.CurrentOrder.CreditCardLast4Digits;
+                CreditCardNumberLabel.Text = "XXXX-XXXX-XXXX-" + _customerService.CurrentOrder.CreditCardLast4Digits;
 
                 if (_customerService.CurrentCustomer.IsAnonymous)   //Anonimous customer, no rewards
                 {

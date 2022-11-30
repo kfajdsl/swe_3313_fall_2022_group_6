@@ -32,6 +32,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.OrderNumTitle = new System.Windows.Forms.Label();
             this.ReceiptPanel = new System.Windows.Forms.Panel();
+            this.OrderNumberLabel = new System.Windows.Forms.Label();
             this.DrinksTotal = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TaxPriceLabel = new System.Windows.Forms.Label();
@@ -48,11 +49,8 @@
             this.CurrentDrinkOrderTable = new System.Windows.Forms.TableLayoutPanel();
             this.CustomerNameLabel = new System.Windows.Forms.Label();
             this.CustomerNameTitle = new System.Windows.Forms.Label();
-            this.OrderNumberPanel = new System.Windows.Forms.Panel();
-            this.OrderNumberLabel = new System.Windows.Forms.Label();
             this.ReceiptPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.OrderNumberPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ReceiptTitle
@@ -88,7 +86,7 @@
             this.OrderNumTitle.BackColor = System.Drawing.Color.White;
             this.OrderNumTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderNumTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.OrderNumTitle.Location = new System.Drawing.Point(86, 16);
+            this.OrderNumTitle.Location = new System.Drawing.Point(82, 16);
             this.OrderNumTitle.Name = "OrderNumTitle";
             this.OrderNumTitle.Size = new System.Drawing.Size(84, 25);
             this.OrderNumTitle.TabIndex = 12;
@@ -96,18 +94,28 @@
             // 
             // ReceiptPanel
             // 
+            this.ReceiptPanel.Controls.Add(this.OrderNumberLabel);
             this.ReceiptPanel.Controls.Add(this.DrinksTotal);
             this.ReceiptPanel.Controls.Add(this.tableLayoutPanel1);
             this.ReceiptPanel.Controls.Add(this.CurrentDrinkOrderTable);
             this.ReceiptPanel.Controls.Add(this.CustomerNameLabel);
             this.ReceiptPanel.Controls.Add(this.CustomerNameTitle);
-            this.ReceiptPanel.Controls.Add(this.OrderNumberPanel);
             this.ReceiptPanel.Controls.Add(this.OrderNumTitle);
             this.ReceiptPanel.Location = new System.Drawing.Point(220, 114);
             this.ReceiptPanel.Name = "ReceiptPanel";
             this.ReceiptPanel.Size = new System.Drawing.Size(867, 545);
             this.ReceiptPanel.TabIndex = 13;
             this.ReceiptPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceiptPanel_Paint);
+            // 
+            // OrderNumberLabel
+            // 
+            this.OrderNumberLabel.AutoSize = true;
+            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderNumberLabel.Location = new System.Drawing.Point(86, 46);
+            this.OrderNumberLabel.Name = "OrderNumberLabel";
+            this.OrderNumberLabel.Size = new System.Drawing.Size(19, 20);
+            this.OrderNumberLabel.TabIndex = 0;
+            this.OrderNumberLabel.Text = "0";
             // 
             // DrinksTotal
             // 
@@ -133,7 +141,7 @@
             this.tableLayoutPanel1.Controls.Add(this.PaidWithLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.SubtotalPriceLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.TotalPaidLabel, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(82, 309);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(100, 308);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -295,10 +303,11 @@
             // 
             // CurrentDrinkOrderTable
             // 
+            this.CurrentDrinkOrderTable.AutoScroll = true;
             this.CurrentDrinkOrderTable.ColumnCount = 2;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 573F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(82, 111);
+            this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(100, 110);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
             this.CurrentDrinkOrderTable.RowCount = 2;
             this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -314,46 +323,26 @@
             this.CustomerNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.CustomerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomerNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.CustomerNameLabel.Location = new System.Drawing.Point(615, 57);
+            this.CustomerNameLabel.Location = new System.Drawing.Point(438, 46);
             this.CustomerNameLabel.Name = "CustomerNameLabel";
             this.CustomerNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerNameLabel.Size = new System.Drawing.Size(241, 33);
+            this.CustomerNameLabel.Size = new System.Drawing.Size(347, 33);
             this.CustomerNameLabel.TabIndex = 15;
             this.CustomerNameLabel.Text = "First Last";
-            this.CustomerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CustomerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CustomerNameTitle
             // 
-            this.CustomerNameTitle.AutoSize = true;
             this.CustomerNameTitle.BackColor = System.Drawing.Color.Transparent;
             this.CustomerNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomerNameTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.CustomerNameTitle.Location = new System.Drawing.Point(615, 16);
+            this.CustomerNameTitle.Location = new System.Drawing.Point(438, 8);
             this.CustomerNameTitle.Name = "CustomerNameTitle";
             this.CustomerNameTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerNameTitle.Size = new System.Drawing.Size(241, 33);
+            this.CustomerNameTitle.Size = new System.Drawing.Size(347, 33);
             this.CustomerNameTitle.TabIndex = 14;
             this.CustomerNameTitle.Text = "Customer Name";
-            this.CustomerNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // OrderNumberPanel
-            // 
-            this.OrderNumberPanel.Controls.Add(this.OrderNumberLabel);
-            this.OrderNumberPanel.Location = new System.Drawing.Point(82, 44);
-            this.OrderNumberPanel.Name = "OrderNumberPanel";
-            this.OrderNumberPanel.Size = new System.Drawing.Size(522, 61);
-            this.OrderNumberPanel.TabIndex = 13;
-            this.OrderNumberPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OrderNumberPanel_Paint);
-            // 
-            // OrderNumberLabel
-            // 
-            this.OrderNumberLabel.AutoSize = true;
-            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.OrderNumberLabel.Location = new System.Drawing.Point(13, 13);
-            this.OrderNumberLabel.Name = "OrderNumberLabel";
-            this.OrderNumberLabel.Size = new System.Drawing.Size(19, 20);
-            this.OrderNumberLabel.TabIndex = 0;
-            this.OrderNumberLabel.Text = "0";
+            this.CustomerNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormReceipt
             // 
@@ -370,8 +359,6 @@
             this.ReceiptPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.OrderNumberPanel.ResumeLayout(false);
-            this.OrderNumberPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,7 +370,6 @@
         private Button btnClose;
         private Label OrderNumTitle;
         private Panel ReceiptPanel;
-        private Panel OrderNumberPanel;
         private Label OrderNumberLabel;
         private Label CustomerNameLabel;
         private Panel DrinksTotal;
