@@ -18,7 +18,7 @@ namespace CoffeePointOfSale.Forms
     {
         private readonly ICustomerService _customerService;
 
-        public FormCustomerList(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
+        public FormCustomerList(ICustomerService customerService)
         {
             _customerService = customerService;
             InitializeComponent();
@@ -77,6 +77,12 @@ namespace CoffeePointOfSale.Forms
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormFactory.Get<FormAddCustomer>().Show();
         }
     }
 }

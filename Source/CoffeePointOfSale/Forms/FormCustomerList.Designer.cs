@@ -42,7 +42,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Firebrick;
-            this.btnClose.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(12, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -56,12 +56,12 @@
             // CustomerListTitle
             // 
             this.CustomerListTitle.AutoSize = true;
-            this.CustomerListTitle.Font = new System.Drawing.Font("Lato", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerListTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomerListTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.CustomerListTitle.Location = new System.Drawing.Point(388, 2);
             this.CustomerListTitle.Name = "CustomerListTitle";
             this.CustomerListTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerListTitle.Size = new System.Drawing.Size(566, 102);
+            this.CustomerListTitle.Size = new System.Drawing.Size(578, 96);
             this.CustomerListTitle.TabIndex = 9;
             this.CustomerListTitle.Text = "Customer List";
             this.CustomerListTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,7 +143,7 @@
             // btnCreateNewCustomer
             // 
             this.btnCreateNewCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(211)))), ((int)(((byte)(83)))));
-            this.btnCreateNewCustomer.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCreateNewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCreateNewCustomer.ForeColor = System.Drawing.Color.White;
             this.btnCreateNewCustomer.Location = new System.Drawing.Point(376, 610);
             this.btnCreateNewCustomer.Name = "btnCreateNewCustomer";
@@ -151,6 +151,7 @@
             this.btnCreateNewCustomer.TabIndex = 12;
             this.btnCreateNewCustomer.Text = "Create New Customer and Order";
             this.btnCreateNewCustomer.UseVisualStyleBackColor = false;
+            this.btnCreateNewCustomer.Click += new System.EventHandler(this.btnCreateNewCustomer_Click);
             // 
             // FormCustomerList
             // 
