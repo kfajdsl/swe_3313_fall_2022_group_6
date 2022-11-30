@@ -41,6 +41,7 @@
             this.SubtotalTitle = new System.Windows.Forms.Label();
             this.PaymentTitle = new System.Windows.Forms.Label();
             this.SelectDrinkPanel = new System.Windows.Forms.Panel();
+            this.InvalidCreditLabel = new System.Windows.Forms.Label();
             this.RewardsPanel = new System.Windows.Forms.Panel();
             this.btnPayWithRewards = new System.Windows.Forms.Button();
             this.OrderRewardsCost = new System.Windows.Forms.Label();
@@ -215,6 +216,7 @@
             // SelectDrinkPanel
             // 
             this.SelectDrinkPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.SelectDrinkPanel.Controls.Add(this.InvalidCreditLabel);
             this.SelectDrinkPanel.Controls.Add(this.RewardsPanel);
             this.SelectDrinkPanel.Controls.Add(this.CVVTextBox);
             this.SelectDrinkPanel.Controls.Add(this.CardYearDropdown);
@@ -227,6 +229,19 @@
             this.SelectDrinkPanel.Size = new System.Drawing.Size(627, 521);
             this.SelectDrinkPanel.TabIndex = 9;
             // 
+            // InvalidCreditLabel
+            // 
+            this.InvalidCreditLabel.AutoSize = true;
+            this.InvalidCreditLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InvalidCreditLabel.ForeColor = System.Drawing.Color.Red;
+            this.InvalidCreditLabel.Location = new System.Drawing.Point(214, 184);
+            this.InvalidCreditLabel.Name = "InvalidCreditLabel";
+            this.InvalidCreditLabel.Size = new System.Drawing.Size(174, 25);
+            this.InvalidCreditLabel.TabIndex = 25;
+            this.InvalidCreditLabel.Text = "Invalid Credit Card!";
+            this.InvalidCreditLabel.Visible = false;
+            this.InvalidCreditLabel.Click += new System.EventHandler(this.btnPayWithCard_Click);
+            // 
             // RewardsPanel
             // 
             this.RewardsPanel.BackColor = System.Drawing.Color.Transparent;
@@ -236,7 +251,7 @@
             this.RewardsPanel.Controls.Add(this.RewardsPriceTitle);
             this.RewardsPanel.Controls.Add(this.CustomerRewardsPointsTitle);
             this.RewardsPanel.Controls.Add(this.RewardsTitle);
-            this.RewardsPanel.Location = new System.Drawing.Point(11, 267);
+            this.RewardsPanel.Location = new System.Drawing.Point(3, 271);
             this.RewardsPanel.Name = "RewardsPanel";
             this.RewardsPanel.Size = new System.Drawing.Size(597, 250);
             this.RewardsPanel.TabIndex = 24;
@@ -382,16 +397,16 @@
             // btnPayWithCard
             // 
             this.btnPayWithCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
-            this.btnPayWithCard.Enabled = false;
             this.btnPayWithCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPayWithCard.ForeColor = System.Drawing.Color.White;
-            this.btnPayWithCard.Location = new System.Drawing.Point(153, 208);
+            this.btnPayWithCard.Location = new System.Drawing.Point(153, 211);
             this.btnPayWithCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPayWithCard.Name = "btnPayWithCard";
             this.btnPayWithCard.Size = new System.Drawing.Size(303, 61);
             this.btnPayWithCard.TabIndex = 15;
             this.btnPayWithCard.Text = "Pay with Credit Card";
             this.btnPayWithCard.UseVisualStyleBackColor = false;
+            this.btnPayWithCard.Click += new System.EventHandler(this.btnPayWithCard_Click);
             // 
             // CreditCardTitle
             // 
@@ -475,5 +490,6 @@
         private TableLayoutPanel CurrentDrinkOrderTable;
         private TextBox CVVTextBox;
         private Panel RewardsPanel;
+        private Label InvalidCreditLabel;
     }
 }

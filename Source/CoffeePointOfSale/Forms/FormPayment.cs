@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CreditCardValidator;
 
 namespace CoffeePointOfSale.Forms
 {
@@ -81,15 +82,60 @@ namespace CoffeePointOfSale.Forms
         }
         private void btnPayWithRewards_Click(object sender, EventArgs e)
         {
-            _customerService.CurrentCustomer.RewardPoints -= _costInRewardsPoints;
+            _customerService.CurrentOrder.PaymentMethod = OrderPaymentMethod.Rewards;
             _customerService.CurrentOrder.PointsRedeemed = _costInRewardsPoints;
+            _customerService.CurrentCustomer.RewardPoints -= _costInRewardsPoints;
+
+            _customerService.Write();
+
             Close(); //closes this form
             FormFactory.Get<FormReceipt>().Show(); //opens the receipt form
         }
 
         private void btnPayWithCard_Click(object sender, EventArgs e)
         {
+            if (CreditCardTextInput.Text == (string) CreditCardTextInput.Tag)
+            {
+                InvalidCreditLabel.Visible = true;
+                return;
+            }
 
+            var noDashes = CreditCardTextInput.Text.Replace('-', ' ');
+            bool validCreditNum = false;
+            try
+            {
+                CreditCardDetector detector = new(noDashes);
+                validCreditNum = detector.IsValid();
+            }
+            catch (Exception ex)
+            {
+                InvalidCreditLabel.Visible = true;
+                return;
+            }
+
+            var monthsList = CardMonthDropdown.Items.Cast<string>();
+            var yearsList = CardYearDropdown.Items.Cast<string>();
+            if (!validCreditNum ||
+                !monthsList.Contains(CardMonthDropdown.Text) ||
+                !yearsList.Contains(CardYearDropdown.Text) ||
+                CVVTextBox.Text == "CVV")
+            {
+                InvalidCreditLabel.Visible = true;
+                return;
+            }
+
+            _customerService.CurrentOrder.PaymentMethod = OrderPaymentMethod.Credit;
+            _customerService.CurrentOrder.CreditCardLast4Digits = noDashes.Trim().Substring(noDashes.Length - 4); 
+            if (!_customerService.CurrentCustomer.IsAnonymous)
+            {
+                _customerService.CurrentCustomer.RewardPoints += _costInRewardsPoints;
+                _customerService.CurrentOrder.PointsEarned = _costInRewardsPoints;
+            }
+
+            _customerService.Write();
+
+            Close(); //closes this form
+            FormFactory.Get<FormReceipt>().Show(); //opens the receipt form
         }
         
         
@@ -122,6 +168,5 @@ namespace CoffeePointOfSale.Forms
             Close(); //closes this form
             FormFactory.Get<FormOrderDrink>().Show(); //re-opens the order form
         }
-
     }
 }
