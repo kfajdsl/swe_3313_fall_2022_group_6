@@ -52,17 +52,35 @@ namespace CoffeePointOfSale.Forms
         {
             Button drinkButton = (sender as Button);
             int index = (int) drinkButton.Tag;
-            activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+            //activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+            activeDrink = new Drink();
             CustomizationPanel.Enabled = true;
+            CustomizationPanel.Visible = true;
             CustomizationPanel.BackColor = Color.White;
         }
         private void newCustomization_Click(object sender, EventArgs e)
         {
             Button customizationButton = (sender as Button);
             int index = (int) customizationButton.Tag;
-            Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
-            activeDrink.Customizations.Add(newCustomization);
+            //Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
+            //activeDrink.Customizations.Add(newCustomization);
         }
+        private void SizeButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SizeButton1.Checked)
+            {
+                
+            }
+        }
+        private void SizeButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void SizeButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
             int Dindex = 0;
@@ -138,10 +156,6 @@ namespace CoffeePointOfSale.Forms
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
-            
-            
-            Button drinkButton = (sender as Button);
-            /*
             Button btnNewDeleteDrinkItem = new Button();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderDrink));
             btnNewDeleteDrinkItem.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -166,32 +180,14 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.Location = new System.Drawing.Point(94, 26);
             DrinkItem.Size = new System.Drawing.Size(95, 23);
             DrinkItem.TabIndex = 1;
-            DrinkItem.Text = drinkButton.Name;
+            DrinkItem.Text = ""+activeDrink;
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             CurrentDrinkOrderTable.Controls.Add(DrinkItem);
 
-            Label NewDrinkPrice = new Label();
-            NewDrinkPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            NewDrinkPrice.AutoSize = true;
-            NewDrinkPrice.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NewDrinkPrice.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            NewDrinkPrice.Location = new System.Drawing.Point(438, 26);
-            NewDrinkPrice.Name = "DrinkPrice";
-            NewDrinkPrice.Size = new System.Drawing.Size(99, 23);
-            NewDrinkPrice.TabIndex = 2;
-
-            int index = 0;
-            while (_drinkMenuService.DrinkMenu.List[index].Name.Equals(drinkButton.Name))
-            {
-                index++;
-            }
-            NewDrinkPrice.Text = "" + _drinkMenuService.DrinkMenu.List[index].BasePrice;
-            NewDrinkPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            CurrentDrinkOrderTable.Controls.Add(NewDrinkPrice);
-            index = 0;
-            */
-
-
+            newOrder.Drinks.Add(activeDrink);
+            SubtotalPriceLabel.Text = "$";
+            TaxPriceLabel.Text = "$";
+            TotalPriceLabel.Text = "$";
         }
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)

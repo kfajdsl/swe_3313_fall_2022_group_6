@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderDrink));
             this.OrderDrinkTitle = new System.Windows.Forms.Label();
             this.SelectDrinkPanel = new System.Windows.Forms.Panel();
+            this.MenuTablePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.MenuTitle = new System.Windows.Forms.Label();
+            this.CustomizationPanel = new System.Windows.Forms.Panel();
             this.btnAddToOrder = new System.Windows.Forms.Button();
+            this.CustomizationLabel = new System.Windows.Forms.Label();
             this.SizeTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.SizeButton2 = new System.Windows.Forms.RadioButton();
             this.SizeButton3 = new System.Windows.Forms.RadioButton();
             this.SizeButton1 = new System.Windows.Forms.RadioButton();
             this.CustomizationsTablePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.MenuTablePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.MenuTitle = new System.Windows.Forms.Label();
-            this.CustomizationPanel = new System.Windows.Forms.Panel();
-            this.CustomizationLabel = new System.Windows.Forms.Label();
             this.DrinkCartPanel = new System.Windows.Forms.Panel();
             this.CurrentOrderPanel = new System.Windows.Forms.Panel();
             this.btnProceedToPayment = new System.Windows.Forms.Button();
@@ -49,7 +49,6 @@
             this.CurrentDrinkOrderTable = new System.Windows.Forms.TableLayoutPanel();
             this.btnDeleteDrinkItem = new System.Windows.Forms.Button();
             this.ExampleDrinkItem = new System.Windows.Forms.Label();
-            this.DrinkPriceExample = new System.Windows.Forms.Label();
             this.SubtotalPriceLabel = new System.Windows.Forms.Label();
             this.CurrentOrderTitle = new System.Windows.Forms.Label();
             this.TotalTitle = new System.Windows.Forms.Label();
@@ -57,8 +56,8 @@
             this.SubtotalLabel = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.SelectDrinkPanel.SuspendLayout();
-            this.SizeTablePanel.SuspendLayout();
             this.CustomizationPanel.SuspendLayout();
+            this.SizeTablePanel.SuspendLayout();
             this.DrinkCartPanel.SuspendLayout();
             this.CurrentOrderPanel.SuspendLayout();
             this.CurrentDrinkOrderTable.SuspendLayout();
@@ -79,9 +78,6 @@
             // 
             // SelectDrinkPanel
             // 
-            this.SelectDrinkPanel.Controls.Add(this.btnAddToOrder);
-            this.SelectDrinkPanel.Controls.Add(this.SizeTablePanel);
-            this.SelectDrinkPanel.Controls.Add(this.CustomizationsTablePanel);
             this.SelectDrinkPanel.Controls.Add(this.MenuTablePanel);
             this.SelectDrinkPanel.Controls.Add(this.MenuTitle);
             this.SelectDrinkPanel.Controls.Add(this.CustomizationPanel);
@@ -90,91 +86,6 @@
             this.SelectDrinkPanel.Size = new System.Drawing.Size(627, 521);
             this.SelectDrinkPanel.TabIndex = 5;
             this.SelectDrinkPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SelectDrinkPanel_Paint);
-            // 
-            // btnAddToOrder
-            // 
-            this.btnAddToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
-            this.btnAddToOrder.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
-            this.btnAddToOrder.Location = new System.Drawing.Point(344, 430);
-            this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAddToOrder.Name = "btnAddToOrder";
-            this.btnAddToOrder.Size = new System.Drawing.Size(263, 73);
-            this.btnAddToOrder.TabIndex = 8;
-            this.btnAddToOrder.Text = "Add to Order";
-            this.btnAddToOrder.UseVisualStyleBackColor = false;
-            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
-            // 
-            // SizeTablePanel
-            // 
-            this.SizeTablePanel.ColumnCount = 1;
-            this.SizeTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SizeTablePanel.Controls.Add(this.SizeButton2, 0, 1);
-            this.SizeTablePanel.Controls.Add(this.SizeButton3, 0, 2);
-            this.SizeTablePanel.Controls.Add(this.SizeButton1, 0, 0);
-            this.SizeTablePanel.Location = new System.Drawing.Point(344, 317);
-            this.SizeTablePanel.Name = "SizeTablePanel";
-            this.SizeTablePanel.RowCount = 2;
-            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SizeTablePanel.Size = new System.Drawing.Size(263, 93);
-            this.SizeTablePanel.TabIndex = 12;
-            // 
-            // SizeButton2
-            // 
-            this.SizeButton2.AutoSize = true;
-            this.SizeButton2.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SizeButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.SizeButton2.Location = new System.Drawing.Point(3, 34);
-            this.SizeButton2.Name = "SizeButton2";
-            this.SizeButton2.Size = new System.Drawing.Size(65, 23);
-            this.SizeButton2.TabIndex = 0;
-            this.SizeButton2.TabStop = true;
-            this.SizeButton2.Text = "Large";
-            this.SizeButton2.UseVisualStyleBackColor = true;
-            // 
-            // SizeButton3
-            // 
-            this.SizeButton3.AutoSize = true;
-            this.SizeButton3.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SizeButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.SizeButton3.Location = new System.Drawing.Point(3, 65);
-            this.SizeButton3.Name = "SizeButton3";
-            this.SizeButton3.Size = new System.Drawing.Size(66, 23);
-            this.SizeButton3.TabIndex = 1;
-            this.SizeButton3.TabStop = true;
-            this.SizeButton3.Text = "Mega";
-            this.SizeButton3.UseVisualStyleBackColor = true;
-            // 
-            // SizeButton1
-            // 
-            this.SizeButton1.AutoSize = true;
-            this.SizeButton1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SizeButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.SizeButton1.Location = new System.Drawing.Point(3, 3);
-            this.SizeButton1.Name = "SizeButton1";
-            this.SizeButton1.Size = new System.Drawing.Size(79, 23);
-            this.SizeButton1.TabIndex = 2;
-            this.SizeButton1.TabStop = true;
-            this.SizeButton1.Text = "Regular";
-            this.SizeButton1.UseVisualStyleBackColor = true;
-            // 
-            // CustomizationsTablePanel
-            // 
-            this.CustomizationsTablePanel.AutoScroll = true;
-            this.CustomizationsTablePanel.BackColor = System.Drawing.Color.White;
-            this.CustomizationsTablePanel.ColumnCount = 1;
-            this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CustomizationsTablePanel.Location = new System.Drawing.Point(21, 317);
-            this.CustomizationsTablePanel.Name = "CustomizationsTablePanel";
-            this.CustomizationsTablePanel.RowCount = 3;
-            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.CustomizationsTablePanel.Size = new System.Drawing.Size(292, 186);
-            this.CustomizationsTablePanel.TabIndex = 11;
             // 
             // MenuTablePanel
             // 
@@ -208,13 +119,31 @@
             // 
             // CustomizationPanel
             // 
-            this.CustomizationPanel.BackColor = System.Drawing.Color.Silver;
+            this.CustomizationPanel.BackColor = System.Drawing.Color.White;
+            this.CustomizationPanel.Controls.Add(this.btnAddToOrder);
             this.CustomizationPanel.Controls.Add(this.CustomizationLabel);
+            this.CustomizationPanel.Controls.Add(this.SizeTablePanel);
+            this.CustomizationPanel.Controls.Add(this.CustomizationsTablePanel);
             this.CustomizationPanel.Enabled = false;
             this.CustomizationPanel.Location = new System.Drawing.Point(11, 243);
             this.CustomizationPanel.Name = "CustomizationPanel";
             this.CustomizationPanel.Size = new System.Drawing.Size(604, 266);
             this.CustomizationPanel.TabIndex = 13;
+            this.CustomizationPanel.Visible = false;
+            // 
+            // btnAddToOrder
+            // 
+            this.btnAddToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
+            this.btnAddToOrder.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
+            this.btnAddToOrder.Location = new System.Drawing.Point(324, 184);
+            this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddToOrder.Name = "btnAddToOrder";
+            this.btnAddToOrder.Size = new System.Drawing.Size(263, 73);
+            this.btnAddToOrder.TabIndex = 8;
+            this.btnAddToOrder.Text = "Add to Order";
+            this.btnAddToOrder.UseVisualStyleBackColor = false;
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
             // CustomizationLabel
             // 
@@ -229,6 +158,79 @@
             this.CustomizationLabel.TabIndex = 9;
             this.CustomizationLabel.Text = "Customization";
             this.CustomizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SizeTablePanel
+            // 
+            this.SizeTablePanel.ColumnCount = 1;
+            this.SizeTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SizeTablePanel.Controls.Add(this.SizeButton2, 0, 1);
+            this.SizeTablePanel.Controls.Add(this.SizeButton3, 0, 2);
+            this.SizeTablePanel.Controls.Add(this.SizeButton1, 0, 0);
+            this.SizeTablePanel.Location = new System.Drawing.Point(333, 64);
+            this.SizeTablePanel.Name = "SizeTablePanel";
+            this.SizeTablePanel.RowCount = 2;
+            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.SizeTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SizeTablePanel.Size = new System.Drawing.Size(263, 93);
+            this.SizeTablePanel.TabIndex = 12;
+            // 
+            // SizeButton2
+            // 
+            this.SizeButton2.AutoSize = true;
+            this.SizeButton2.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.SizeButton2.Location = new System.Drawing.Point(3, 34);
+            this.SizeButton2.Name = "SizeButton2";
+            this.SizeButton2.Size = new System.Drawing.Size(85, 23);
+            this.SizeButton2.TabIndex = 0;
+            this.SizeButton2.Text = "Medium";
+            this.SizeButton2.UseVisualStyleBackColor = true;
+            this.SizeButton2.CheckedChanged += new System.EventHandler(this.SizeButton2_CheckedChanged);
+            // 
+            // SizeButton3
+            // 
+            this.SizeButton3.AutoSize = true;
+            this.SizeButton3.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.SizeButton3.Location = new System.Drawing.Point(3, 65);
+            this.SizeButton3.Name = "SizeButton3";
+            this.SizeButton3.Size = new System.Drawing.Size(65, 23);
+            this.SizeButton3.TabIndex = 1;
+            this.SizeButton3.Text = "Large";
+            this.SizeButton3.UseVisualStyleBackColor = true;
+            this.SizeButton3.CheckedChanged += new System.EventHandler(this.SizeButton3_CheckedChanged);
+            // 
+            // SizeButton1
+            // 
+            this.SizeButton1.AutoSize = true;
+            this.SizeButton1.Checked = true;
+            this.SizeButton1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SizeButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.SizeButton1.Location = new System.Drawing.Point(3, 3);
+            this.SizeButton1.Name = "SizeButton1";
+            this.SizeButton1.Size = new System.Drawing.Size(65, 23);
+            this.SizeButton1.TabIndex = 2;
+            this.SizeButton1.TabStop = true;
+            this.SizeButton1.Text = "Small";
+            this.SizeButton1.UseVisualStyleBackColor = true;
+            this.SizeButton1.CheckedChanged += new System.EventHandler(this.SizeButton1_CheckedChanged);
+            // 
+            // CustomizationsTablePanel
+            // 
+            this.CustomizationsTablePanel.AutoScroll = true;
+            this.CustomizationsTablePanel.BackColor = System.Drawing.Color.White;
+            this.CustomizationsTablePanel.ColumnCount = 1;
+            this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.CustomizationsTablePanel.Location = new System.Drawing.Point(10, 80);
+            this.CustomizationsTablePanel.Name = "CustomizationsTablePanel";
+            this.CustomizationsTablePanel.RowCount = 3;
+            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CustomizationsTablePanel.Size = new System.Drawing.Size(292, 186);
+            this.CustomizationsTablePanel.TabIndex = 11;
             // 
             // DrinkCartPanel
             // 
@@ -296,13 +298,12 @@
             // CurrentDrinkOrderTable
             // 
             this.CurrentDrinkOrderTable.AutoScroll = true;
-            this.CurrentDrinkOrderTable.ColumnCount = 3;
+            this.CurrentDrinkOrderTable.ColumnCount = 2;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Controls.Add(this.btnDeleteDrinkItem, 0, 0);
             this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 1, 0);
-            this.CurrentDrinkOrderTable.Controls.Add(this.DrinkPriceExample, 2, 0);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(13, 47);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
             this.CurrentDrinkOrderTable.RowCount = 2;
@@ -339,26 +340,13 @@
             this.ExampleDrinkItem.Text = "DrinkItem";
             this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DrinkPriceExample
-            // 
-            this.DrinkPriceExample.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DrinkPriceExample.AutoSize = true;
-            this.DrinkPriceExample.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DrinkPriceExample.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DrinkPriceExample.Location = new System.Drawing.Point(438, 26);
-            this.DrinkPriceExample.Name = "DrinkPriceExample";
-            this.DrinkPriceExample.Size = new System.Drawing.Size(99, 23);
-            this.DrinkPriceExample.TabIndex = 2;
-            this.DrinkPriceExample.Text = "DrinkPrice";
-            this.DrinkPriceExample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SubtotalPriceLabel
             // 
             this.SubtotalPriceLabel.AutoSize = true;
             this.SubtotalPriceLabel.BackColor = System.Drawing.Color.White;
             this.SubtotalPriceLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SubtotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.SubtotalPriceLabel.Location = new System.Drawing.Point(170, 352);
+            this.SubtotalPriceLabel.Location = new System.Drawing.Point(170, 355);
             this.SubtotalPriceLabel.Name = "SubtotalPriceLabel";
             this.SubtotalPriceLabel.Size = new System.Drawing.Size(36, 25);
             this.SubtotalPriceLabel.TabIndex = 20;
@@ -443,10 +431,10 @@
             this.Load += new System.EventHandler(this.FormOrderDrink_Load);
             this.SelectDrinkPanel.ResumeLayout(false);
             this.SelectDrinkPanel.PerformLayout();
-            this.SizeTablePanel.ResumeLayout(false);
-            this.SizeTablePanel.PerformLayout();
             this.CustomizationPanel.ResumeLayout(false);
             this.CustomizationPanel.PerformLayout();
+            this.SizeTablePanel.ResumeLayout(false);
+            this.SizeTablePanel.PerformLayout();
             this.DrinkCartPanel.ResumeLayout(false);
             this.CurrentOrderPanel.ResumeLayout(false);
             this.CurrentOrderPanel.PerformLayout();
@@ -489,7 +477,6 @@
         private Label ExampleDrinkItem;
         private Label TotalTitle;
         private Button btnProceedToPayment;
-        private Label DrinkPriceExample;
         private TableLayoutPanel SizeTablePanel;
         private TableLayoutPanel CustomizationsTablePanel;
     }
