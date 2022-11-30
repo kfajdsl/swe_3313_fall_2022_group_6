@@ -68,18 +68,26 @@ namespace CoffeePointOfSale.Forms
             {
                 // Creates a new button for a DrinkMenuCustomization
                 Button newCustomization = new Button();
-                newCustomization.Name = c.Name;
-                newCustomization.Text = c.Name;
-                newCustomization.Font = new Font("Lato", 20.25F);
+                newCustomization.Name = c.Name; // HACK don't change this, we depend on the button name being the customization name
+                newCustomization.Text = "Add";
                 newCustomization.BackColor = Color.FromArgb(90, 105, 120);
                 newCustomization.ForeColor = Color.White;
                 newCustomization.AutoSize = true;
                 newCustomization.Tag = c;
                 newCustomization.Anchor = AnchorStyles.None;
-                CustomizationsTablePanel.Controls.Add(newCustomization);
                 // Creates a new event handler for the DrinkMenuCustomization button
                 newCustomization.Click += new EventHandler(this.customizationButton_Click);
+                CustomizationsTablePanel.Controls.Add(newCustomization);
+
+                Label newCustomizationLabel = new Label();
+                newCustomizationLabel.Name = $"{c.Name}_Label";
+                newCustomizationLabel.Text = c.Name;
+                newCustomizationLabel.AutoSize = false;
+                newCustomizationLabel.TextAlign = ContentAlignment.MiddleLeft;
+                newCustomizationLabel.Dock = DockStyle.Fill;
+                CustomizationsTablePanel.Controls.Add(newCustomizationLabel);
             }
+            //CustomizationsTablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 
             foreach (DrinkMenuCustomization s in _drinkMenuService.DrinkMenu.SizeList)
             {
@@ -121,10 +129,20 @@ namespace CoffeePointOfSale.Forms
         {
             // Adds the customization button pressed as an object
             Button customizationButton = (sender as Button);
-            // Adds the new customization to the active drink
-            Customization newCustomization = ((DrinkMenuCustomization) customizationButton.Tag).NewCustomization();
-            activeDrink.Customizations.Add(newCustomization);
-            customizationButton.BackColor = Color.FromArgb(119, 221, 83);
+
+
+            // HACK not enabled
+            if (customizationButton.BackColor.Equals(Color.FromArgb(90, 105, 120)))
+            {
+                // Adds the new customization to the active drink
+                Customization newCustomization = ((DrinkMenuCustomization) customizationButton.Tag).NewCustomization();
+                activeDrink.Customizations.Add(newCustomization);
+                customizationButton.BackColor = Color.FromArgb(119, 221, 83);
+            } else
+            {
+                customizationButton.BackColor = Color.FromArgb(90, 105, 120);
+                activeDrink.Customizations.RemoveAll(c => c.Name == customizationButton.Name);
+            }
         }
 
         private void sizeButton_Click(object sender, EventArgs e)
@@ -164,7 +182,7 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.Location = new System.Drawing.Point(94, 26);
             DrinkItem.Size = new System.Drawing.Size(95, 23);
             DrinkItem.TabIndex = 1;
-            DrinkItem.Text = "" + activeDrink.Name + ": " + activeDrink + " $" + total;
+            DrinkItem.Text = activeDrink.ToString();
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
             // Sets tag to the drink and label
