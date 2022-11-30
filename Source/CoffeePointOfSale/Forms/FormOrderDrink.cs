@@ -53,6 +53,8 @@ namespace CoffeePointOfSale.Forms
             Button drinkButton = (sender as Button);
             int index = (int) drinkButton.Tag;
             activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+            CustomizationPanel.Enabled = true;
+            CustomizationPanel.BackColor = Color.White;
         }
         private void newCustomization_Click(object sender, EventArgs e)
         {
@@ -97,7 +99,9 @@ namespace CoffeePointOfSale.Forms
                 newDrink.Click += new EventHandler(this.newDrink_Click);
                 Dindex++;
             }
+
             int Cindex = 0;
+
             foreach (DrinkMenuCustomization c in _drinkMenuService.DrinkMenu.CustomizationList)
             {
                 // Creates a new button for a DrinkMenuCustomization

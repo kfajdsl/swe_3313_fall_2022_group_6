@@ -208,7 +208,9 @@
             // 
             // CustomizationPanel
             // 
+            this.CustomizationPanel.BackColor = System.Drawing.Color.Silver;
             this.CustomizationPanel.Controls.Add(this.CustomizationLabel);
+            this.CustomizationPanel.Enabled = false;
             this.CustomizationPanel.Location = new System.Drawing.Point(11, 243);
             this.CustomizationPanel.Name = "CustomizationPanel";
             this.CustomizationPanel.Size = new System.Drawing.Size(604, 266);
