@@ -132,21 +132,6 @@ namespace CoffeePointOfSale.Forms
                 newDrink.Click += new EventHandler(this.newDrink_Click);
                 Dindex++;
             }
-            for (int i = 0; i < 10; i++)
-            {
-                Button newDrink = new Button();
-                newDrink.Name = "Drink"+Dindex;
-                newDrink.Text = "TestCoffee"+Dindex;
-                newDrink.Font = new Font("Lato", 20.25F);
-                newDrink.BackColor = Color.FromArgb(90, 105, 120);
-                newDrink.ForeColor = Color.White;
-                newDrink.AutoSize = true;
-                newDrink.Tag = Dindex;
-                newDrink.Anchor = AnchorStyles.None;
-                MenuTablePanel.Controls.Add(newDrink);
-                newDrink.Click += new EventHandler(this.newDrink_Click);
-                Dindex++;
-            }
 
             int Cindex = 0;
             // Adds each customization to the CustomizationMenuTable
@@ -164,21 +149,6 @@ namespace CoffeePointOfSale.Forms
                 newCustomization.Anchor = AnchorStyles.None;
                 CustomizationsTablePanel.Controls.Add(newCustomization);
                 // Creates a new event handler for the DrinkMenuCustomization button
-                newCustomization.Click += new EventHandler(this.newCustomization_Click);
-                Cindex++;
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                Button newCustomization = new Button();
-                newCustomization.Name = "Customization"+Cindex;
-                newCustomization.Text = "Foam"+Cindex;
-                newCustomization.Font = new Font("Lato", 20.25F);
-                newCustomization.BackColor = Color.FromArgb(90, 105, 120);
-                newCustomization.ForeColor = Color.White;
-                newCustomization.AutoSize = true;
-                newCustomization.Tag = Cindex;
-                newCustomization.Anchor = AnchorStyles.None;
-                CustomizationsTablePanel.Controls.Add(newCustomization);
                 newCustomization.Click += new EventHandler(this.newCustomization_Click);
                 Cindex++;
             }
