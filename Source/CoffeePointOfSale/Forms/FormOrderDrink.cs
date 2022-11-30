@@ -56,7 +56,6 @@ namespace CoffeePointOfSale.Forms
             int index = (int) drinkButton.Tag;
             // Creates a new drink with base size
             activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
-            activeDrink = new Drink();
             activeDrink.Customizations.Add(_drinkMenuService.DrinkMenu.CustomizationList[0].NewCustomization());
             // Unhides the customizations pannel
             CustomizationPanel.Enabled = true;
@@ -175,6 +174,10 @@ namespace CoffeePointOfSale.Forms
 
 
             // Creates the drink info label
+            decimal subtotal = activeDrink.getTotal();
+            decimal tax = Decimal.Round(Decimal.Multiply(subtotal, _appSettings.Tax.Rate), 2);
+            decimal total = Decimal.Round(Decimal.Add(tax, subtotal), 2);
+
             Label DrinkItem = new Label();
             DrinkItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             DrinkItem.AutoSize = true;
@@ -183,14 +186,21 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.Location = new System.Drawing.Point(94, 26);
             DrinkItem.Size = new System.Drawing.Size(95, 23);
             DrinkItem.TabIndex = 1;
-            DrinkItem.Text = ""+activeDrink;
+            DrinkItem.Text = "" + activeDrink.Name + ": " + activeDrink + " $" + total;
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             CurrentDrinkOrderTable.Controls.Add(DrinkItem);
 
             newOrder.Drinks.Add(activeDrink);
-            SubtotalPriceLabel.Text = "$";
-            TaxPriceLabel.Text = "$";
-            TotalPriceLabel.Text = "$";
+            newOrder.Total += total;
+            newOrder.Tax += tax;
+            newOrder.SubTotal += subtotal;
+            SubtotalPriceLabel.Text = "$" + newOrder.SubTotal;
+            TaxPriceLabel.Text = "$" + newOrder.Tax;
+            TotalPriceLabel.Text = "$" + newOrder.Total;
+            activeDrink = new Drink();
+            CustomizationPanel.Enabled = false;
+            CustomizationPanel.Visible = false;
+
         }
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
