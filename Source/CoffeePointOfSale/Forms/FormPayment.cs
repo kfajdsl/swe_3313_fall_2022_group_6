@@ -85,6 +85,7 @@ namespace CoffeePointOfSale.Forms
             _customerService.CurrentOrder.PaymentMethod = OrderPaymentMethod.Rewards;
             _customerService.CurrentOrder.PointsRedeemed = _costInRewardsPoints;
             _customerService.CurrentCustomer.RewardPoints -= _costInRewardsPoints;
+            _customerService.Customers.SubmitOrder(_customerService.CurrentOrder);
 
             _customerService.Write();
 
@@ -132,6 +133,7 @@ namespace CoffeePointOfSale.Forms
                 _customerService.CurrentOrder.PointsEarned = _costInRewardsPoints;
             }
 
+            _customerService.Customers.SubmitOrder(_customerService.CurrentOrder);
             _customerService.Write();
 
             Close(); //closes this form
