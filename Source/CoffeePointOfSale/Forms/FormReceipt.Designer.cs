@@ -46,15 +46,12 @@
             this.SubtotalPriceLabel = new System.Windows.Forms.Label();
             this.TotalPaidLabel = new System.Windows.Forms.Label();
             this.CurrentDrinkOrderTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ExampleDrinkItem = new System.Windows.Forms.Label();
-            this.DrinkPriceExample = new System.Windows.Forms.Label();
             this.CustomerNameLabel = new System.Windows.Forms.Label();
             this.CustomerNameTitle = new System.Windows.Forms.Label();
             this.OrderNumberPanel = new System.Windows.Forms.Panel();
             this.OrderNumberLabel = new System.Windows.Forms.Label();
             this.ReceiptPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.CurrentDrinkOrderTable.SuspendLayout();
             this.OrderNumberPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -297,45 +294,15 @@
             this.CurrentDrinkOrderTable.ColumnCount = 2;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 573F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 0, 2);
-            this.CurrentDrinkOrderTable.Controls.Add(this.DrinkPriceExample, 1, 2);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(82, 111);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
-            this.CurrentDrinkOrderTable.RowCount = 3;
+            this.CurrentDrinkOrderTable.RowCount = 2;
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.CurrentDrinkOrderTable.Size = new System.Drawing.Size(685, 204);
             this.CurrentDrinkOrderTable.TabIndex = 15;
             this.CurrentDrinkOrderTable.Paint += new System.Windows.Forms.PaintEventHandler(this.CurrentDrinkOrderTable_Paint);
-            // 
-            // ExampleDrinkItem
-            // 
-            this.ExampleDrinkItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ExampleDrinkItem.AutoSize = true;
-            this.ExampleDrinkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ExampleDrinkItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ExampleDrinkItem.Location = new System.Drawing.Point(3, 110);
-            this.ExampleDrinkItem.Name = "ExampleDrinkItem";
-            this.ExampleDrinkItem.Size = new System.Drawing.Size(88, 24);
-            this.ExampleDrinkItem.TabIndex = 1;
-            this.ExampleDrinkItem.Text = "DrinkItem";
-            this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ExampleDrinkItem.Click += new System.EventHandler(this.ExampleDrinkItem_Click);
-            // 
-            // DrinkPriceExample
-            // 
-            this.DrinkPriceExample.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DrinkPriceExample.AutoSize = true;
-            this.DrinkPriceExample.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DrinkPriceExample.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DrinkPriceExample.Location = new System.Drawing.Point(601, 110);
-            this.DrinkPriceExample.Name = "DrinkPriceExample";
-            this.DrinkPriceExample.Size = new System.Drawing.Size(55, 24);
-            this.DrinkPriceExample.TabIndex = 2;
-            this.DrinkPriceExample.Text = "$0.00";
-            this.DrinkPriceExample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CustomerNameLabel
             // 
@@ -399,8 +366,6 @@
             this.ReceiptPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.CurrentDrinkOrderTable.ResumeLayout(false);
-            this.CurrentDrinkOrderTable.PerformLayout();
             this.OrderNumberPanel.ResumeLayout(false);
             this.OrderNumberPanel.PerformLayout();
             this.ResumeLayout(false);

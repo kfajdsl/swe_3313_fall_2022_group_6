@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CoffeePointOfSale.Forms
 {
@@ -128,7 +129,6 @@ namespace CoffeePointOfSale.Forms
             Customization newSize = ((DrinkMenuCustomization)sizeRadio.Tag).NewCustomization();
             activeDrink.Customizations[0] = newSize; // HACK we can always just assume that the first element is the size
         }
-
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             // Creates the delete drink button
@@ -146,8 +146,6 @@ namespace CoffeePointOfSale.Forms
             btnNewDeleteDrinkItem.TabIndex = 0;
             btnNewDeleteDrinkItem.UseVisualStyleBackColor = false;
             btnNewDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
-            CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
-
 
             // Creates the drink info label
             decimal subtotal = activeDrink.getTotal();
@@ -164,6 +162,11 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.TabIndex = 1;
             DrinkItem.Text = "" + activeDrink.Name + ": " + activeDrink + " $" + total;
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            // Sets tag to the drink and label
+            btnNewDeleteDrinkItem.Tag = new {drinkItem = activeDrink, drinkLabel = DrinkItem};
+            // Adds the delete button and item label
+            CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
             CurrentDrinkOrderTable.Controls.Add(DrinkItem);
 
             newOrder.Drinks.Add(activeDrink);
@@ -174,6 +177,11 @@ namespace CoffeePointOfSale.Forms
             TaxPriceLabel.Text = "$" + newOrder.Tax;
             TotalPriceLabel.Text = "$" + newOrder.Total;
             activeDrink = new Drink();
+
+            // Enables pay button
+            btnProceedToPayment.Enabled = true;
+            btnProceedToPayment.BackColor = Color.FromArgb(119, 221, 83);
+            // Disables customization menu
             CustomizationPanel.Enabled = false;
             CustomizationPanel.Visible = false;
 
@@ -182,14 +190,33 @@ namespace CoffeePointOfSale.Forms
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
             _customerService.CurrentOrder = newOrder;
+            newOrder = new Order();
             Close(); //closes this form
             FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
         }
 
         private void btnDeleteDrinkItem_Click(object sender, EventArgs e)
         {
-            //Removes the drink from the order
-            //Clear the drink from the order table panel
+            Button deleteButton = (sender as Button);
+            Drink deleteDrink = ((dynamic)deleteButton.Tag).drinkItem;
+            Label deleteLabel = ((dynamic)deleteButton.Tag).drinkLabel;
+            newOrder.Drinks.Remove(deleteDrink);
+            newOrder.SubTotal -= deleteDrink.getTotal();
+            newOrder.Tax -= Decimal.Round(Decimal.Multiply(deleteDrink.getTotal(), _appSettings.Tax.Rate), 2);
+            newOrder.Total -= (deleteDrink.getTotal() + Decimal.Round(Decimal.Multiply(deleteDrink.getTotal(), _appSettings.Tax.Rate), 2));
+            CurrentDrinkOrderTable.Controls.Remove(deleteLabel);
+            CurrentDrinkOrderTable.Controls.Remove(deleteButton);
+
+            //Updates Order Price Labels
+            SubtotalPriceLabel.Text = "$" + newOrder.SubTotal;
+            TaxPriceLabel.Text = "$" + newOrder.Tax;
+            TotalPriceLabel.Text = "$" + newOrder.Total;
+            //Disables pay button if order is now empty
+            if (newOrder.Drinks.Count == 0)
+            {
+                btnProceedToPayment.Enabled = false;
+                btnProceedToPayment.BackColor = Color.LightGray;
+            }
         }
 
         private void btnCustomization_Click(object sender, EventArgs e)

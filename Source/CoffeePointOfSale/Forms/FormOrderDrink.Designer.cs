@@ -54,6 +54,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.SelectDrinkPanel.SuspendLayout();
             this.CustomizationPanel.SuspendLayout();
+            this.SizeTablePanel.SuspendLayout();
             this.DrinkCartPanel.SuspendLayout();
             this.CurrentOrderPanel.SuspendLayout();
             this.CurrentDrinkOrderTable.SuspendLayout();
@@ -62,7 +63,7 @@
             // OrderDrinkTitle
             // 
             this.OrderDrinkTitle.AutoSize = true;
-            this.OrderDrinkTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderDrinkTitle.Font = new System.Drawing.Font("Lato", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OrderDrinkTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.OrderDrinkTitle.Location = new System.Drawing.Point(451, -11);
             this.OrderDrinkTitle.Name = "OrderDrinkTitle";
@@ -103,12 +104,12 @@
             // 
             this.MenuTitle.AutoSize = true;
             this.MenuTitle.BackColor = System.Drawing.Color.Transparent;
-            this.MenuTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MenuTitle.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MenuTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.MenuTitle.Location = new System.Drawing.Point(21, 5);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MenuTitle.Size = new System.Drawing.Size(144, 54);
+            this.MenuTitle.Size = new System.Drawing.Size(146, 56);
             this.MenuTitle.TabIndex = 8;
             this.MenuTitle.Text = "Menu";
             this.MenuTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,7 +131,7 @@
             // btnAddToOrder
             // 
             this.btnAddToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
-            this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddToOrder.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddToOrder.ForeColor = System.Drawing.Color.White;
             this.btnAddToOrder.Location = new System.Drawing.Point(324, 184);
             this.btnAddToOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -145,12 +146,12 @@
             // 
             this.CustomizationLabel.AutoSize = true;
             this.CustomizationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.CustomizationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomizationLabel.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomizationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.CustomizationLabel.Location = new System.Drawing.Point(10, 5);
             this.CustomizationLabel.Name = "CustomizationLabel";
             this.CustomizationLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomizationLabel.Size = new System.Drawing.Size(333, 54);
+            this.CustomizationLabel.Size = new System.Drawing.Size(328, 56);
             this.CustomizationLabel.TabIndex = 9;
             this.CustomizationLabel.Text = "Customization";
             this.CustomizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -209,8 +210,9 @@
             // 
             // btnProceedToPayment
             // 
-            this.btnProceedToPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
-            this.btnProceedToPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnProceedToPayment.BackColor = System.Drawing.Color.LightGray;
+            this.btnProceedToPayment.Enabled = false;
+            this.btnProceedToPayment.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnProceedToPayment.ForeColor = System.Drawing.Color.White;
             this.btnProceedToPayment.Location = new System.Drawing.Point(300, 365);
             this.btnProceedToPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -251,14 +253,16 @@
             this.CurrentDrinkOrderTable.ColumnCount = 2;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Controls.Add(this.btnDeleteDrinkItem, 0, 0);
             this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 1, 0);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(13, 47);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
-            this.CurrentDrinkOrderTable.RowCount = 2;
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CurrentDrinkOrderTable.RowCount = 4;
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Size = new System.Drawing.Size(561, 284);
             this.CurrentDrinkOrderTable.TabIndex = 14;
             // 
@@ -272,29 +276,31 @@
             this.btnDeleteDrinkItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDrinkItem.Image")));
             this.btnDeleteDrinkItem.Location = new System.Drawing.Point(11, 3);
             this.btnDeleteDrinkItem.Name = "btnDeleteDrinkItem";
-            this.btnDeleteDrinkItem.Size = new System.Drawing.Size(69, 69);
+            this.btnDeleteDrinkItem.Size = new System.Drawing.Size(69, 65);
             this.btnDeleteDrinkItem.TabIndex = 0;
             this.btnDeleteDrinkItem.UseVisualStyleBackColor = false;
+            this.btnDeleteDrinkItem.Visible = false;
             this.btnDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
             // 
             // ExampleDrinkItem
             // 
             this.ExampleDrinkItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExampleDrinkItem.AutoSize = true;
-            this.ExampleDrinkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExampleDrinkItem.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExampleDrinkItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ExampleDrinkItem.Location = new System.Drawing.Point(94, 25);
+            this.ExampleDrinkItem.Location = new System.Drawing.Point(94, 24);
             this.ExampleDrinkItem.Name = "ExampleDrinkItem";
-            this.ExampleDrinkItem.Size = new System.Drawing.Size(88, 24);
+            this.ExampleDrinkItem.Size = new System.Drawing.Size(95, 23);
             this.ExampleDrinkItem.TabIndex = 1;
             this.ExampleDrinkItem.Text = "DrinkItem";
             this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ExampleDrinkItem.Visible = false;
             // 
             // SubtotalPriceLabel
             // 
             this.SubtotalPriceLabel.AutoSize = true;
             this.SubtotalPriceLabel.BackColor = System.Drawing.Color.White;
-            this.SubtotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SubtotalPriceLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SubtotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SubtotalPriceLabel.Location = new System.Drawing.Point(170, 355);
             this.SubtotalPriceLabel.Name = "SubtotalPriceLabel";
@@ -306,12 +312,12 @@
             // 
             this.CurrentOrderTitle.AutoSize = true;
             this.CurrentOrderTitle.BackColor = System.Drawing.Color.Transparent;
-            this.CurrentOrderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CurrentOrderTitle.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CurrentOrderTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.CurrentOrderTitle.Location = new System.Drawing.Point(0, -12);
             this.CurrentOrderTitle.Name = "CurrentOrderTitle";
             this.CurrentOrderTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CurrentOrderTitle.Size = new System.Drawing.Size(326, 54);
+            this.CurrentOrderTitle.Size = new System.Drawing.Size(322, 56);
             this.CurrentOrderTitle.TabIndex = 14;
             this.CurrentOrderTitle.Text = "Current Order";
             this.CurrentOrderTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -320,11 +326,11 @@
             // 
             this.TotalTitle.AutoSize = true;
             this.TotalTitle.BackColor = System.Drawing.Color.White;
-            this.TotalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TotalTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.TotalTitle.Location = new System.Drawing.Point(16, 418);
             this.TotalTitle.Name = "TotalTitle";
-            this.TotalTitle.Size = new System.Drawing.Size(60, 25);
+            this.TotalTitle.Size = new System.Drawing.Size(56, 25);
             this.TotalTitle.TabIndex = 19;
             this.TotalTitle.Text = "Total";
             // 
@@ -332,11 +338,11 @@
             // 
             this.TaxLabel.AutoSize = true;
             this.TaxLabel.BackColor = System.Drawing.Color.White;
-            this.TaxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TaxLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TaxLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.TaxLabel.Location = new System.Drawing.Point(13, 386);
             this.TaxLabel.Name = "TaxLabel";
-            this.TaxLabel.Size = new System.Drawing.Size(48, 25);
+            this.TaxLabel.Size = new System.Drawing.Size(42, 25);
             this.TaxLabel.TabIndex = 2;
             this.TaxLabel.Text = "Tax";
             // 
@@ -344,11 +350,11 @@
             // 
             this.SubtotalLabel.AutoSize = true;
             this.SubtotalLabel.BackColor = System.Drawing.Color.White;
-            this.SubtotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SubtotalLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SubtotalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SubtotalLabel.Location = new System.Drawing.Point(13, 352);
             this.SubtotalLabel.Name = "SubtotalLabel";
-            this.SubtotalLabel.Size = new System.Drawing.Size(91, 25);
+            this.SubtotalLabel.Size = new System.Drawing.Size(90, 25);
             this.SubtotalLabel.TabIndex = 1;
             this.SubtotalLabel.Text = "Subtotal";
             // 
@@ -383,6 +389,8 @@
             this.SelectDrinkPanel.PerformLayout();
             this.CustomizationPanel.ResumeLayout(false);
             this.CustomizationPanel.PerformLayout();
+            this.SizeTablePanel.ResumeLayout(false);
+            this.SizeTablePanel.PerformLayout();
             this.DrinkCartPanel.ResumeLayout(false);
             this.CurrentOrderPanel.ResumeLayout(false);
             this.CurrentOrderPanel.PerformLayout();
