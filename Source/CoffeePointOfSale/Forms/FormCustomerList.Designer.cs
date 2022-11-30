@@ -70,14 +70,13 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastNameLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.PhoneLabel, 3, 0);
@@ -86,9 +85,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(88, 97);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1157, 489);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
@@ -97,7 +94,7 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(634, 1);
+            this.label1.Location = new System.Drawing.Point(808, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 34);
             this.label1.TabIndex = 14;
@@ -121,7 +118,7 @@
             this.PhoneLabel.AutoSize = true;
             this.PhoneLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PhoneLabel.Location = new System.Drawing.Point(448, 1);
+            this.PhoneLabel.Location = new System.Drawing.Point(607, 1);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(179, 34);
             this.PhoneLabel.TabIndex = 13;
@@ -133,7 +130,7 @@
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FirstNameLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FirstNameLabel.Location = new System.Drawing.Point(139, 1);
+            this.FirstNameLabel.Location = new System.Drawing.Point(205, 1);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(131, 34);
             this.FirstNameLabel.TabIndex = 12;
@@ -145,7 +142,7 @@
             this.RewardPointsLabel.AutoSize = true;
             this.RewardPointsLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RewardPointsLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RewardPointsLabel.Location = new System.Drawing.Point(277, 1);
+            this.RewardPointsLabel.Location = new System.Drawing.Point(406, 1);
             this.RewardPointsLabel.Name = "RewardPointsLabel";
             this.RewardPointsLabel.Size = new System.Drawing.Size(164, 34);
             this.RewardPointsLabel.TabIndex = 14;
@@ -165,7 +162,7 @@
             this.btnCreateNewCustomer.UseVisualStyleBackColor = false;
             this.btnCreateNewCustomer.Click += new System.EventHandler(this.btnCreateNewCustomer_Click);
             // 
-            // FormCustomerList2
+            // FormCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +171,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.CustomerListLable);
             this.Controls.Add(this.btnCancel);
-            this.Name = "FormCustomerList2";
+            this.Name = "FormCustomerList";
             this.Text = "FormCustomerList2";
             this.Load += new System.EventHandler(this.FormCustomerList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
