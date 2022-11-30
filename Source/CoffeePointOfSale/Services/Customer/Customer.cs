@@ -2,6 +2,7 @@
 
 namespace CoffeePointOfSale.Services.Customer;
 
+// change 2
 public class Customer
 {
     public const string AnonymousCustomerId = "000-000-000";
