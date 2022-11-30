@@ -32,7 +32,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.CurrentDrinkOrderTable = new System.Windows.Forms.TableLayoutPanel();
             this.ExampleDrinkItem = new System.Windows.Forms.Label();
-            this.DrinkPriceExample = new System.Windows.Forms.Label();
             this.btnEditOrder = new System.Windows.Forms.Button();
             this.TaxPriceLabel = new System.Windows.Forms.Label();
             this.TotalPriceLabel = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.SubtotalTitle = new System.Windows.Forms.Label();
             this.PaymentTitle = new System.Windows.Forms.Label();
             this.SelectDrinkPanel = new System.Windows.Forms.Panel();
+            this.CVVTextBox = new System.Windows.Forms.TextBox();
             this.btnPayWithRewards = new System.Windows.Forms.Button();
             this.OrderRewardsCost = new System.Windows.Forms.Label();
             this.CustomerRewardsLabel = new System.Windows.Forms.Label();
@@ -55,7 +55,6 @@
             this.RewardsTitle = new System.Windows.Forms.Label();
             this.CreditCardTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.CVVTextBox = new System.Windows.Forms.TextBox();
             this.DrinkCartPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.CurrentDrinkOrderTable.SuspendLayout();
@@ -89,12 +88,10 @@
             // 
             // CurrentDrinkOrderTable
             // 
-            this.CurrentDrinkOrderTable.ColumnCount = 2;
+            this.CurrentDrinkOrderTable.ColumnCount = 1;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
-            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 0, 0);
-            this.CurrentDrinkOrderTable.Controls.Add(this.DrinkPriceExample, 1, 0);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(0, 62);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
             this.CurrentDrinkOrderTable.RowCount = 2;
@@ -116,23 +113,9 @@
             this.ExampleDrinkItem.Text = "DrinkItem";
             this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DrinkPriceExample
-            // 
-            this.DrinkPriceExample.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DrinkPriceExample.AutoSize = true;
-            this.DrinkPriceExample.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DrinkPriceExample.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DrinkPriceExample.Location = new System.Drawing.Point(508, 26);
-            this.DrinkPriceExample.Name = "DrinkPriceExample";
-            this.DrinkPriceExample.Size = new System.Drawing.Size(58, 23);
-            this.DrinkPriceExample.TabIndex = 2;
-            this.DrinkPriceExample.Text = "$0.00";
-            this.DrinkPriceExample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnEditOrder
             // 
             this.btnEditOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(105)))), ((int)(((byte)(120)))));
-            this.btnEditOrder.Enabled = false;
             this.btnEditOrder.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditOrder.ForeColor = System.Drawing.Color.White;
             this.btnEditOrder.Location = new System.Drawing.Point(298, 403);
@@ -142,6 +125,7 @@
             this.btnEditOrder.TabIndex = 14;
             this.btnEditOrder.Text = "Edit Order";
             this.btnEditOrder.UseVisualStyleBackColor = false;
+            this.btnEditOrder.Click += new System.EventHandler(this.btnEditOrder_Click);
             // 
             // TaxPriceLabel
             // 
@@ -261,6 +245,16 @@
             this.SelectDrinkPanel.Name = "SelectDrinkPanel";
             this.SelectDrinkPanel.Size = new System.Drawing.Size(627, 521);
             this.SelectDrinkPanel.TabIndex = 9;
+            // 
+            // CVVTextBox
+            // 
+            this.CVVTextBox.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CVVTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(144)))), ((int)(((byte)(165)))));
+            this.CVVTextBox.Location = new System.Drawing.Point(388, 148);
+            this.CVVTextBox.Name = "CVVTextBox";
+            this.CVVTextBox.Size = new System.Drawing.Size(113, 33);
+            this.CVVTextBox.TabIndex = 23;
+            this.CVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnPayWithRewards
             // 
@@ -430,16 +424,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // CVVTextBox
-            // 
-            this.CVVTextBox.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CVVTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(144)))), ((int)(((byte)(165)))));
-            this.CVVTextBox.Location = new System.Drawing.Point(388, 148);
-            this.CVVTextBox.Name = "CVVTextBox";
-            this.CVVTextBox.Size = new System.Drawing.Size(113, 33);
-            this.CVVTextBox.TabIndex = 23;
-            this.CVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // FormPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -493,7 +477,6 @@
         private Button btnClose;
         private TableLayoutPanel CurrentDrinkOrderTable;
         private Label ExampleDrinkItem;
-        private Label DrinkPriceExample;
         private TextBox CVVTextBox;
     }
 }
