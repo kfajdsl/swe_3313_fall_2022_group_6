@@ -23,6 +23,7 @@ namespace CoffeePointOfSale.Forms
         private Customer _customer;
         private IAppSettings _appSettings;
         private Order newOrder = new Order();
+        private Drink activeDrink = new Drink();
 
         Pen backgroundpen = new Pen(Color.FromArgb(255, 242, 242, 242), 500);
         public FormOrderDrink(IAppSettings appSettings, IDrinkMenuService drinkMenuService) : base(appSettings)
@@ -51,25 +52,83 @@ namespace CoffeePointOfSale.Forms
         {
             Button drinkButton = (sender as Button);
             int index = (int) drinkButton.Tag;
-            Drink newDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+            activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+        }
+        private void newCustomization_Click(object sender, EventArgs e)
+        {
+            Button customizationButton = (sender as Button);
+            int index = (int) customizationButton.Tag;
+            Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
+            activeDrink.Customizations.Add(newCustomization);
         }
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
-            int index = 0;
+            int Dindex = 0;
+
             foreach (DrinkMenuDrink d in _drinkMenuService.DrinkMenu.DrinkList)
             {
+                // Creates a new button for a DrinkMenuItem
                 Button newDrink = new Button();
-                newDrink.Name = d.Name+index;
+                newDrink.Name = d.Name+Dindex;
                 newDrink.Text = d.Name;
                 newDrink.Font = new Font("Lato", 20.25F);
                 newDrink.BackColor = Color.FromArgb(90, 105, 120);
                 newDrink.ForeColor = Color.White;
                 newDrink.AutoSize = true;
-                newDrink.Tag = index;
+                newDrink.Tag = Dindex;
+                newDrink.Anchor = AnchorStyles.None;
+                MenuTablePanel.Controls.Add(newDrink);
+                // Creates a new event handler for the DrinkMenuItem button
+                newDrink.Click += new EventHandler(this.newDrink_Click);
+                Dindex++;
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Button newDrink = new Button();
+                newDrink.Name = "Drink"+Dindex;
+                newDrink.Text = "TestCoffee"+Dindex;
+                newDrink.Font = new Font("Lato", 20.25F);
+                newDrink.BackColor = Color.FromArgb(90, 105, 120);
+                newDrink.ForeColor = Color.White;
+                newDrink.AutoSize = true;
+                newDrink.Tag = Dindex;
                 newDrink.Anchor = AnchorStyles.None;
                 MenuTablePanel.Controls.Add(newDrink);
                 newDrink.Click += new EventHandler(this.newDrink_Click);
-                index++;
+                Dindex++;
+            }
+            int Cindex = 0;
+            foreach (DrinkMenuCustomization c in _drinkMenuService.DrinkMenu.CustomizationList)
+            {
+                // Creates a new button for a DrinkMenuCustomization
+                Button newCustomization = new Button();
+                newCustomization.Name = c.Name + Cindex;
+                newCustomization.Text = c.Name;
+                newCustomization.Font = new Font("Lato", 20.25F);
+                newCustomization.BackColor = Color.FromArgb(90, 105, 120);
+                newCustomization.ForeColor = Color.White;
+                newCustomization.AutoSize = true;
+                newCustomization.Tag = Cindex;
+                newCustomization.Anchor = AnchorStyles.None;
+                CustomizationsTablePanel.Controls.Add(newCustomization);
+                // Creates a new event handler for the DrinkMenuCustomization button
+                newCustomization.Click += new EventHandler(this.newCustomization_Click);
+                Cindex++;
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Button newCustomization = new Button();
+                newCustomization.Name = "Customization"+Cindex;
+                newCustomization.Text = "Foam"+Cindex;
+                newCustomization.Font = new Font("Lato", 20.25F);
+                newCustomization.BackColor = Color.FromArgb(90, 105, 120);
+                newCustomization.ForeColor = Color.White;
+                newCustomization.AutoSize = true;
+                newCustomization.Tag = Cindex;
+                newCustomization.Anchor = AnchorStyles.None;
+                CustomizationsTablePanel.Controls.Add(newCustomization);
+                newCustomization.Click += new EventHandler(this.newCustomization_Click);
+                Cindex++;
             }
         }
 
@@ -141,6 +200,11 @@ namespace CoffeePointOfSale.Forms
         {
             //Removes the drink from the order
             //Clear the drink from the order table panel
+        }
+
+        private void btnCustomization_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

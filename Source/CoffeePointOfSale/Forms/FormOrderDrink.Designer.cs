@@ -37,7 +37,6 @@
             this.SizeButton3 = new System.Windows.Forms.RadioButton();
             this.SizeButton1 = new System.Windows.Forms.RadioButton();
             this.CustomizationsTablePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCustomization = new System.Windows.Forms.Button();
             this.MenuTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.MenuTitle = new System.Windows.Forms.Label();
             this.CustomizationPanel = new System.Windows.Forms.Panel();
@@ -59,7 +58,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.SelectDrinkPanel.SuspendLayout();
             this.SizeTablePanel.SuspendLayout();
-            this.CustomizationsTablePanel.SuspendLayout();
             this.CustomizationPanel.SuspendLayout();
             this.DrinkCartPanel.SuspendLayout();
             this.CurrentOrderPanel.SuspendLayout();
@@ -169,7 +167,6 @@
             this.CustomizationsTablePanel.BackColor = System.Drawing.Color.White;
             this.CustomizationsTablePanel.ColumnCount = 1;
             this.CustomizationsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CustomizationsTablePanel.Controls.Add(this.btnCustomization, 0, 2);
             this.CustomizationsTablePanel.Location = new System.Drawing.Point(21, 317);
             this.CustomizationsTablePanel.Name = "CustomizationsTablePanel";
             this.CustomizationsTablePanel.RowCount = 3;
@@ -178,22 +175,6 @@
             this.CustomizationsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.CustomizationsTablePanel.Size = new System.Drawing.Size(292, 186);
             this.CustomizationsTablePanel.TabIndex = 11;
-            // 
-            // btnCustomization
-            // 
-            this.btnCustomization.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCustomization.AutoSize = true;
-            this.btnCustomization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(105)))), ((int)(((byte)(120)))));
-            this.btnCustomization.Enabled = false;
-            this.btnCustomization.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCustomization.ForeColor = System.Drawing.Color.White;
-            this.btnCustomization.Location = new System.Drawing.Point(10, 69);
-            this.btnCustomization.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCustomization.Name = "btnCustomization";
-            this.btnCustomization.Size = new System.Drawing.Size(272, 47);
-            this.btnCustomization.TabIndex = 16;
-            this.btnCustomization.Text = "Customization Name";
-            this.btnCustomization.UseVisualStyleBackColor = false;
             // 
             // MenuTablePanel
             // 
@@ -462,8 +443,6 @@
             this.SelectDrinkPanel.PerformLayout();
             this.SizeTablePanel.ResumeLayout(false);
             this.SizeTablePanel.PerformLayout();
-            this.CustomizationsTablePanel.ResumeLayout(false);
-            this.CustomizationsTablePanel.PerformLayout();
             this.CustomizationPanel.ResumeLayout(false);
             this.CustomizationPanel.PerformLayout();
             this.DrinkCartPanel.ResumeLayout(false);
@@ -511,6 +490,5 @@
         private Label DrinkPriceExample;
         private TableLayoutPanel SizeTablePanel;
         private TableLayoutPanel CustomizationsTablePanel;
-        private Button btnCustomization;
     }
 }
