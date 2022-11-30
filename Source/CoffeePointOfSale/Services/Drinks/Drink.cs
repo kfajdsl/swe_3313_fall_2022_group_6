@@ -1,18 +1,26 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace CoffeePointOfSale.Services.Drinks;
 
 public class Drink
 {
-    public string Name { get; set; }
-    public string BaseDescription { get; set; }
-    public string Image { get; set; }
-    public decimal BasePrice { get; set; }
-
-    public List<Customization> Customizations { get; set; }
+    public string Name { get; set; } = "";
+    public decimal BasePrice { get; set; } = 0.0M;
+    public List<Customization> Customizations { get; set; } = new List<Customization>();
 
     public override string ToString()
     {
-        return $"Name: {Name}, BaseDescription: {BaseDescription}, Image: {Image}, BasePrice: {BasePrice}";
+        decimal totalPrice = BasePrice;
+        StringBuilder customizationsBuilder = new();
+
+        foreach (var customization in Customizations)
+        {
+            totalPrice += customization.Price;
+            customizationsBuilder.AppendFormat("{0},", customization.ToString());
+        }
+        customizationsBuilder.Length--; // remove the comma after the last item
+
+        return $"${totalPrice.ToString("F")} {Name} {customizationsBuilder.ToString()}";
     }
 }
