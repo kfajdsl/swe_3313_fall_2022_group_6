@@ -28,16 +28,25 @@ namespace CoffeePointOfSale.Forms
         //When it loads add all the fields in the Customer table
         private void FormCustomerList_Load(object sender, EventArgs e)
         {
-             //Adds every customer to the table
+            //Takes the unsorted customer
+            Customer[] unsortedClients = _customerService.Customers.List.ToArray();
+
+            // Query for ascending sort.
+            IEnumerable<Customer> sortedClients =
+                from Customer in unsortedClients
+                orderby !Customer.IsAnonymous, Customer.LastName, Customer.FirstName, Customer.Phone//Anonymous customer first, then "ascending", LastName, FirstName, or Phone Number
+                select Customer;
+
+            //Adds every customer to the table
             foreach (Customer customer in
-                _customerService.Customers.List)
-            {
+                sortedClients) {
+                
                 //Create empty Lables and gives format
                 Label _label1 = new Label();
                 Label _label2 = new Label();
                 Label _label3 = new Label();
                 Label _label4 = new Label();
-                _label1.Font = _label2.Font = _label3.Font = _label4.Font = new Font("Arial", 16);
+                _label1.Font = _label2.Font = _label3.Font = _label4.Font = new Font("Arial", 10);
                 _label1.TextAlign = _label2.TextAlign = _label3.TextAlign = _label4.TextAlign = ContentAlignment.TopCenter;
 
                 //Creates empty buttons and gives format and functionality
