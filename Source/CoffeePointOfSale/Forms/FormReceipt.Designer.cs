@@ -34,9 +34,8 @@
             this.ReceiptPanel = new System.Windows.Forms.Panel();
             this.DrinksTotal = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.SubtotalPriceLabel = new System.Windows.Forms.Label();
             this.TaxPriceLabel = new System.Windows.Forms.Label();
-            this.TotalPaidLabel = new System.Windows.Forms.Label();
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
             this.RewardsPointsLabel = new System.Windows.Forms.Label();
             this.SubtotalTitle = new System.Windows.Forms.Label();
             this.RewardsPointsRemainingTitle = new System.Windows.Forms.Label();
@@ -44,7 +43,8 @@
             this.CreditCardNumberLabel = new System.Windows.Forms.Label();
             this.TotalTitle = new System.Windows.Forms.Label();
             this.PaidWithLabel = new System.Windows.Forms.Label();
-            this.TotalPriceLabel = new System.Windows.Forms.Label();
+            this.SubtotalPriceLabel = new System.Windows.Forms.Label();
+            this.TotalPaidLabel = new System.Windows.Forms.Label();
             this.CurrentDrinkOrderTable = new System.Windows.Forms.TableLayoutPanel();
             this.ExampleDrinkItem = new System.Windows.Forms.Label();
             this.DrinkPriceExample = new System.Windows.Forms.Label();
@@ -61,12 +61,12 @@
             // ReceiptTitle
             // 
             this.ReceiptTitle.AutoSize = true;
-            this.ReceiptTitle.Font = new System.Drawing.Font("Lato", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ReceiptTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 63.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ReceiptTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.ReceiptTitle.Location = new System.Drawing.Point(488, 9);
             this.ReceiptTitle.Name = "ReceiptTitle";
             this.ReceiptTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ReceiptTitle.Size = new System.Drawing.Size(326, 102);
+            this.ReceiptTitle.Size = new System.Drawing.Size(336, 96);
             this.ReceiptTitle.TabIndex = 9;
             this.ReceiptTitle.Text = "Receipt";
             this.ReceiptTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,7 +74,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Firebrick;
-            this.btnClose.Font = new System.Drawing.Font("Lato", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(12, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -89,11 +89,11 @@
             // 
             this.OrderNumTitle.AutoSize = true;
             this.OrderNumTitle.BackColor = System.Drawing.Color.White;
-            this.OrderNumTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OrderNumTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderNumTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.OrderNumTitle.Location = new System.Drawing.Point(86, 16);
             this.OrderNumTitle.Name = "OrderNumTitle";
-            this.OrderNumTitle.Size = new System.Drawing.Size(85, 25);
+            this.OrderNumTitle.Size = new System.Drawing.Size(84, 25);
             this.OrderNumTitle.TabIndex = 12;
             this.OrderNumTitle.Text = "Order #";
             // 
@@ -110,6 +110,7 @@
             this.ReceiptPanel.Name = "ReceiptPanel";
             this.ReceiptPanel.Size = new System.Drawing.Size(867, 545);
             this.ReceiptPanel.TabIndex = 13;
+            this.ReceiptPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceiptPanel_Paint);
             // 
             // DrinksTotal
             // 
@@ -124,9 +125,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 573F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.Controls.Add(this.SubtotalPriceLabel, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.TaxPriceLabel, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.TotalPaidLabel, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.TaxPriceLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.TotalPriceLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.RewardsPointsLabel, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.SubtotalTitle, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.RewardsPointsRemainingTitle, 0, 5);
@@ -134,7 +134,8 @@
             this.tableLayoutPanel1.Controls.Add(this.CreditCardNumberLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.TotalTitle, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.PaidWithLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.TotalPriceLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.SubtotalPriceLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TotalPaidLabel, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(82, 309);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -147,51 +148,38 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(685, 236);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
-            // SubtotalPriceLabel
-            // 
-            this.SubtotalPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.SubtotalPriceLabel.AutoSize = true;
-            this.SubtotalPriceLabel.BackColor = System.Drawing.Color.White;
-            this.SubtotalPriceLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SubtotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.SubtotalPriceLabel.Location = new System.Drawing.Point(646, 46);
-            this.SubtotalPriceLabel.Name = "SubtotalPriceLabel";
-            this.SubtotalPriceLabel.Size = new System.Drawing.Size(36, 25);
-            this.SubtotalPriceLabel.TabIndex = 16;
-            this.SubtotalPriceLabel.Text = "$0";
-            // 
             // TaxPriceLabel
             // 
             this.TaxPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.TaxPriceLabel.AutoSize = true;
             this.TaxPriceLabel.BackColor = System.Drawing.Color.White;
-            this.TaxPriceLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TaxPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TaxPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.TaxPriceLabel.Location = new System.Drawing.Point(646, 85);
+            this.TaxPriceLabel.Location = new System.Drawing.Point(646, 46);
             this.TaxPriceLabel.Name = "TaxPriceLabel";
             this.TaxPriceLabel.Size = new System.Drawing.Size(36, 25);
-            this.TaxPriceLabel.TabIndex = 18;
+            this.TaxPriceLabel.TabIndex = 16;
             this.TaxPriceLabel.Text = "$0";
             // 
-            // TotalPaidLabel
+            // TotalPriceLabel
             // 
-            this.TotalPaidLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.TotalPaidLabel.AutoSize = true;
-            this.TotalPaidLabel.BackColor = System.Drawing.Color.White;
-            this.TotalPaidLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TotalPaidLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.TotalPaidLabel.Location = new System.Drawing.Point(646, 163);
-            this.TotalPaidLabel.Name = "TotalPaidLabel";
-            this.TotalPaidLabel.Size = new System.Drawing.Size(36, 25);
-            this.TotalPaidLabel.TabIndex = 20;
-            this.TotalPaidLabel.Text = "$0";
+            this.TotalPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.BackColor = System.Drawing.Color.White;
+            this.TotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.TotalPriceLabel.Location = new System.Drawing.Point(646, 85);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(36, 25);
+            this.TotalPriceLabel.TabIndex = 18;
+            this.TotalPriceLabel.Text = "$0";
             // 
             // RewardsPointsLabel
             // 
             this.RewardsPointsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RewardsPointsLabel.AutoSize = true;
             this.RewardsPointsLabel.BackColor = System.Drawing.Color.White;
-            this.RewardsPointsLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RewardsPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RewardsPointsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.RewardsPointsLabel.Location = new System.Drawing.Point(658, 203);
             this.RewardsPointsLabel.Name = "RewardsPointsLabel";
@@ -204,11 +192,11 @@
             this.SubtotalTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SubtotalTitle.AutoSize = true;
             this.SubtotalTitle.BackColor = System.Drawing.Color.White;
-            this.SubtotalTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SubtotalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SubtotalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.SubtotalTitle.Location = new System.Drawing.Point(3, 7);
             this.SubtotalTitle.Name = "SubtotalTitle";
-            this.SubtotalTitle.Size = new System.Drawing.Size(92, 25);
+            this.SubtotalTitle.Size = new System.Drawing.Size(99, 25);
             this.SubtotalTitle.TabIndex = 1;
             this.SubtotalTitle.Text = "Subtotal";
             // 
@@ -217,11 +205,11 @@
             this.RewardsPointsRemainingTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RewardsPointsRemainingTitle.AutoSize = true;
             this.RewardsPointsRemainingTitle.BackColor = System.Drawing.Color.White;
-            this.RewardsPointsRemainingTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.RewardsPointsRemainingTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.RewardsPointsRemainingTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.RewardsPointsRemainingTitle.Location = new System.Drawing.Point(3, 203);
             this.RewardsPointsRemainingTitle.Name = "RewardsPointsRemainingTitle";
-            this.RewardsPointsRemainingTitle.Size = new System.Drawing.Size(256, 25);
+            this.RewardsPointsRemainingTitle.Size = new System.Drawing.Size(289, 25);
             this.RewardsPointsRemainingTitle.TabIndex = 22;
             this.RewardsPointsRemainingTitle.Text = "Reward Points Remaining ";
             // 
@@ -230,11 +218,11 @@
             this.TaxTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TaxTitle.AutoSize = true;
             this.TaxTitle.BackColor = System.Drawing.Color.White;
-            this.TaxTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TaxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TaxTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.TaxTitle.Location = new System.Drawing.Point(3, 46);
             this.TaxTitle.Name = "TaxTitle";
-            this.TaxTitle.Size = new System.Drawing.Size(45, 25);
+            this.TaxTitle.Size = new System.Drawing.Size(51, 25);
             this.TaxTitle.TabIndex = 2;
             this.TaxTitle.Text = "Tax";
             // 
@@ -243,7 +231,7 @@
             this.CreditCardNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CreditCardNumberLabel.AutoSize = true;
             this.CreditCardNumberLabel.BackColor = System.Drawing.Color.White;
-            this.CreditCardNumberLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreditCardNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CreditCardNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.CreditCardNumberLabel.Location = new System.Drawing.Point(3, 163);
             this.CreditCardNumberLabel.Name = "CreditCardNumberLabel";
@@ -257,11 +245,11 @@
             this.TotalTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TotalTitle.AutoSize = true;
             this.TotalTitle.BackColor = System.Drawing.Color.White;
-            this.TotalTitle.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TotalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TotalTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.TotalTitle.Location = new System.Drawing.Point(3, 85);
             this.TotalTitle.Name = "TotalTitle";
-            this.TotalTitle.Size = new System.Drawing.Size(58, 25);
+            this.TotalTitle.Size = new System.Drawing.Size(65, 25);
             this.TotalTitle.TabIndex = 15;
             this.TotalTitle.Text = "Total";
             // 
@@ -270,26 +258,39 @@
             this.PaidWithLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.PaidWithLabel.AutoSize = true;
             this.PaidWithLabel.BackColor = System.Drawing.Color.White;
-            this.PaidWithLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PaidWithLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PaidWithLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
             this.PaidWithLabel.Location = new System.Drawing.Point(3, 124);
             this.PaidWithLabel.Name = "PaidWithLabel";
-            this.PaidWithLabel.Size = new System.Drawing.Size(213, 25);
+            this.PaidWithLabel.Size = new System.Drawing.Size(235, 25);
             this.PaidWithLabel.TabIndex = 19;
             this.PaidWithLabel.Text = "Paid with Credit Card";
             // 
-            // TotalPriceLabel
+            // SubtotalPriceLabel
             // 
-            this.TotalPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.TotalPriceLabel.AutoSize = true;
-            this.TotalPriceLabel.BackColor = System.Drawing.Color.White;
-            this.TotalPriceLabel.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.TotalPriceLabel.Location = new System.Drawing.Point(646, 7);
-            this.TotalPriceLabel.Name = "TotalPriceLabel";
-            this.TotalPriceLabel.Size = new System.Drawing.Size(36, 25);
-            this.TotalPriceLabel.TabIndex = 17;
-            this.TotalPriceLabel.Text = "$0";
+            this.SubtotalPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.SubtotalPriceLabel.AutoSize = true;
+            this.SubtotalPriceLabel.BackColor = System.Drawing.Color.White;
+            this.SubtotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SubtotalPriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.SubtotalPriceLabel.Location = new System.Drawing.Point(646, 7);
+            this.SubtotalPriceLabel.Name = "SubtotalPriceLabel";
+            this.SubtotalPriceLabel.Size = new System.Drawing.Size(36, 25);
+            this.SubtotalPriceLabel.TabIndex = 17;
+            this.SubtotalPriceLabel.Text = "$0";
+            // 
+            // TotalPaidLabel
+            // 
+            this.TotalPaidLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.TotalPaidLabel.AutoSize = true;
+            this.TotalPaidLabel.BackColor = System.Drawing.Color.White;
+            this.TotalPaidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TotalPaidLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.TotalPaidLabel.Location = new System.Drawing.Point(646, 124);
+            this.TotalPaidLabel.Name = "TotalPaidLabel";
+            this.TotalPaidLabel.Size = new System.Drawing.Size(36, 25);
+            this.TotalPaidLabel.TabIndex = 20;
+            this.TotalPaidLabel.Text = "$0";
             // 
             // CurrentDrinkOrderTable
             // 
@@ -297,38 +298,41 @@
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 573F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 0, 0);
-            this.CurrentDrinkOrderTable.Controls.Add(this.DrinkPriceExample, 1, 0);
+            this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 0, 2);
+            this.CurrentDrinkOrderTable.Controls.Add(this.DrinkPriceExample, 1, 2);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(82, 111);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
-            this.CurrentDrinkOrderTable.RowCount = 2;
+            this.CurrentDrinkOrderTable.RowCount = 3;
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.CurrentDrinkOrderTable.Size = new System.Drawing.Size(685, 204);
             this.CurrentDrinkOrderTable.TabIndex = 15;
+            this.CurrentDrinkOrderTable.Paint += new System.Windows.Forms.PaintEventHandler(this.CurrentDrinkOrderTable_Paint);
             // 
             // ExampleDrinkItem
             // 
             this.ExampleDrinkItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExampleDrinkItem.AutoSize = true;
-            this.ExampleDrinkItem.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ExampleDrinkItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExampleDrinkItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ExampleDrinkItem.Location = new System.Drawing.Point(3, 26);
+            this.ExampleDrinkItem.Location = new System.Drawing.Point(3, 110);
             this.ExampleDrinkItem.Name = "ExampleDrinkItem";
-            this.ExampleDrinkItem.Size = new System.Drawing.Size(95, 23);
+            this.ExampleDrinkItem.Size = new System.Drawing.Size(88, 24);
             this.ExampleDrinkItem.TabIndex = 1;
             this.ExampleDrinkItem.Text = "DrinkItem";
             this.ExampleDrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ExampleDrinkItem.Click += new System.EventHandler(this.ExampleDrinkItem_Click);
             // 
             // DrinkPriceExample
             // 
             this.DrinkPriceExample.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DrinkPriceExample.AutoSize = true;
-            this.DrinkPriceExample.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DrinkPriceExample.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DrinkPriceExample.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DrinkPriceExample.Location = new System.Drawing.Point(600, 26);
+            this.DrinkPriceExample.Location = new System.Drawing.Point(601, 110);
             this.DrinkPriceExample.Name = "DrinkPriceExample";
-            this.DrinkPriceExample.Size = new System.Drawing.Size(58, 23);
+            this.DrinkPriceExample.Size = new System.Drawing.Size(55, 24);
             this.DrinkPriceExample.TabIndex = 2;
             this.DrinkPriceExample.Text = "$0.00";
             this.DrinkPriceExample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,12 +341,12 @@
             // 
             this.CustomerNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CustomerNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.CustomerNameLabel.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomerNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.CustomerNameLabel.Location = new System.Drawing.Point(531, 57);
+            this.CustomerNameLabel.Location = new System.Drawing.Point(615, 57);
             this.CustomerNameLabel.Name = "CustomerNameLabel";
             this.CustomerNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerNameLabel.Size = new System.Drawing.Size(325, 33);
+            this.CustomerNameLabel.Size = new System.Drawing.Size(241, 33);
             this.CustomerNameLabel.TabIndex = 15;
             this.CustomerNameLabel.Text = "First Last";
             this.CustomerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -351,12 +355,12 @@
             // 
             this.CustomerNameTitle.AutoSize = true;
             this.CustomerNameTitle.BackColor = System.Drawing.Color.Transparent;
-            this.CustomerNameTitle.Font = new System.Drawing.Font("Lato", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CustomerNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CustomerNameTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.CustomerNameTitle.Location = new System.Drawing.Point(640, 16);
+            this.CustomerNameTitle.Location = new System.Drawing.Point(615, 16);
             this.CustomerNameTitle.Name = "CustomerNameTitle";
             this.CustomerNameTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CustomerNameTitle.Size = new System.Drawing.Size(223, 35);
+            this.CustomerNameTitle.Size = new System.Drawing.Size(241, 33);
             this.CustomerNameTitle.TabIndex = 14;
             this.CustomerNameTitle.Text = "Customer Name";
             this.CustomerNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -366,17 +370,17 @@
             this.OrderNumberPanel.Controls.Add(this.OrderNumberLabel);
             this.OrderNumberPanel.Location = new System.Drawing.Point(82, 44);
             this.OrderNumberPanel.Name = "OrderNumberPanel";
-            this.OrderNumberPanel.Size = new System.Drawing.Size(88, 61);
+            this.OrderNumberPanel.Size = new System.Drawing.Size(522, 61);
             this.OrderNumberPanel.TabIndex = 13;
             this.OrderNumberPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OrderNumberPanel_Paint);
             // 
             // OrderNumberLabel
             // 
             this.OrderNumberLabel.AutoSize = true;
-            this.OrderNumberLabel.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.OrderNumberLabel.Location = new System.Drawing.Point(31, 13);
+            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderNumberLabel.Location = new System.Drawing.Point(13, 13);
             this.OrderNumberLabel.Name = "OrderNumberLabel";
-            this.OrderNumberLabel.Size = new System.Drawing.Size(31, 33);
+            this.OrderNumberLabel.Size = new System.Drawing.Size(30, 31);
             this.OrderNumberLabel.TabIndex = 0;
             this.OrderNumberLabel.Text = "0";
             // 
@@ -418,9 +422,9 @@
         private Label CreditCardNumberLabel;
         private Label TotalPaidLabel;
         private Label PaidWithLabel;
-        private Label TaxPriceLabel;
         private Label TotalPriceLabel;
         private Label SubtotalPriceLabel;
+        private Label TaxPriceLabel;
         private Label TotalTitle;
         private Label TaxTitle;
         private Label SubtotalTitle;
