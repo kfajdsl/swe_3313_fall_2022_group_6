@@ -24,6 +24,9 @@ public class Customers
     public IReadOnlyList<Customer> List =>
         _customerDict.Select(c => c.Value)
             .OrderBy(c => c.IsAnonymous ? 0 : 1)
+            .ThenBy(c => c.LastName)
+            .ThenBy(c => c.FirstName)
+            .ThenBy(c => c.Phone)
             .ToList();
 
     /// <summary>
