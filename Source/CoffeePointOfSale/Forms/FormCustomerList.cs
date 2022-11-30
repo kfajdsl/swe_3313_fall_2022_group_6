@@ -7,82 +7,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CoffeePointOfSale.Configuration;
 using CoffeePointOfSale.Forms.Base;
-using CoffeePointOfSale.Services.Customer;
 using CoffeePointOfSale.Services.FormFactory;
+using CoffeePointOfSale.Services.Customer;
 
 namespace CoffeePointOfSale.Forms
 {
-    public partial class FormCustomerList : FormNoCloseBase
+    public partial class FormCustomerList2 : FormNoCloseBase
     {
+        //Customer Service to read the customers
         private readonly ICustomerService _customerService;
 
-        public FormCustomerList(ICustomerService customerService)
+        //Constructor
+        public FormCustomerList2(ICustomerService customerService)
         {
             _customerService = customerService;
             InitializeComponent();
         }
 
-        private void DemonstrateGettingCustomerList()
+        //When it loads add all the fields in the Customer table
+        private void FormCustomerList2_Load(object sender, EventArgs e)
         {
-            var customerList = _customerService.Customers.List;
-            for (var customerIdx = 0; customerIdx < customerList.Count; customerIdx++)
+            //Create empty Lables and gives format
+            Label _label1 = new Label();
+            Label _label2 = new Label();
+            Label _label3 = new Label();
+            Label _label4 = new Label();
+            _label1.Font = _label2.Font = _label3.Font = _label4.Font = new Font("Arial", 16);
+            _label1.TextAlign = _label2.TextAlign = _label3.TextAlign = _label4.TextAlign = ContentAlignment.TopCenter;
+
+            //Creates empty buttons and gives format and functionality
+            Button _button = new Button();
+            _button.Text = "Order";
+            _button.Font = new Font("Arial", 16, FontStyle.Bold);
+            _button.TextAlign = ContentAlignment.TopCenter;
+            _button.BackColor = Color.FromArgb(119, 211, 83);
+            _button.ForeColor = Color.White;
+
+            //Adds every customer to the table
+            foreach (Customer customer in
+                _customerService.Customers.List)
             {
-                var customer = customerList[customerIdx];
+                _label1.Text = customer.LastName;
+                _label2.Text = customer.FirstName;
+                _label3.Text = customer.Phone;
+                _label2.Text = customer.RewardPoints+"";
+                
+                tableLayoutPanel1.Controls.Add(_label1);
+                tableLayoutPanel1.Controls.Add(_label2);
+                tableLayoutPanel1.Controls.Add(_label3);
+                tableLayoutPanel1.Controls.Add(_label4);
+
+                tableLayoutPanel1.Controls.Add(_button);
             }
         }
 
-        private void OnLoadFormManagement(object sender, EventArgs e)
-        {
-            DemonstrateGettingCustomerList();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
+        //Goes back to Main
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
-            FormFactory.Get<FormMain>().Show();
+            FormFactory.Get<FormMain>();
         }
 
-        private void customerListTableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FormCustomerList_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //Goes to Add Customer Form
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             Hide();
-            FormFactory.Get<FormAddCustomer>().Show();
+            FormFactory.Get<FormAddCustomer>();
         }
     }
 }
