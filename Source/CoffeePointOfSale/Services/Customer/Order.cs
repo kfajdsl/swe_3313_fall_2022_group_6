@@ -15,7 +15,7 @@ public class Order
 {
     public string OrderID { get; } = Guid.NewGuid().ToString();
 
-    public string CustomerID { get; set; } = "";
+    public string CustomerID { get; set; } = ""; // phone number
 
     public DateTime OrderDateTime { get; set; } = DateTime.Now;
 

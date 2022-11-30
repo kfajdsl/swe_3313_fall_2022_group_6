@@ -11,6 +11,13 @@ public class Customers
     private readonly Dictionary<string, Customer> _customerDict = new();
 
     /// <summary>
+    /// Private list containing all orders.
+    /// </summary>
+    [JsonProperty("Orders")]
+    private readonly List<Order> _orders = new();
+    
+
+    /// <summary>
     /// Returns a readonly list of all customers.
     /// </summary>
     [JsonIgnore] //not written to JSON file... this is a list view of the dictionary, so only the dictionary is written
@@ -18,6 +25,12 @@ public class Customers
         _customerDict.Select(c => c.Value)
             .OrderBy(c => c.IsAnonymous ? 0 : 1)
             .ToList();
+
+    /// <summary>
+    /// Returns a readonly list of all orders.
+    /// </summary>
+    [JsonIgnore] 
+    public IReadOnlyList<Order> OrderList => _orders;
 
     /// <summary>
     /// Indexer to return a specific customer by phone.
@@ -42,6 +55,19 @@ public class Customers
     {
         if (this[customer.Phone] != null) return false;
         _customerDict.Add(customer.Phone, customer);
+        return true;
+    }
+
+    /// <summary>
+    /// Adds a new order to the order list.
+    /// </summary>
+    /// <param name="order"></param>
+    /// <returns>True if added. False if not added (invalid order). Does not throw.</returns>
+    public bool SubmitOrder(Order order)
+    {
+        if (order.PaymentMethod == OrderPaymentMethod.Unpaid) return false;
+
+        _orders.Add(order);
         return true;
     }
 }
