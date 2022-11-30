@@ -115,6 +115,7 @@ namespace CoffeePointOfSale.Forms
             CustomizationPanel.Enabled = true;
             CustomizationPanel.Visible = true;
             CustomizationPanel.BackColor = Color.White;
+            CustomizationLabel.Text = drinkButton.Text;
         }
         private void customizationButton_Click(object sender, EventArgs e)
         {
@@ -123,6 +124,7 @@ namespace CoffeePointOfSale.Forms
             // Adds the new customization to the active drink
             Customization newCustomization = ((DrinkMenuCustomization) customizationButton.Tag).NewCustomization();
             activeDrink.Customizations.Add(newCustomization);
+            customizationButton.BackColor = Color.FromArgb(119, 221, 83);
         }
 
         private void sizeButton_Click(object sender, EventArgs e)
