@@ -39,7 +39,6 @@
             this.CustomizationsTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnCustomization = new System.Windows.Forms.Button();
             this.MenuTablePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDrink = new System.Windows.Forms.Button();
             this.MenuTitle = new System.Windows.Forms.Label();
             this.CustomizationPanel = new System.Windows.Forms.Panel();
             this.CustomizationLabel = new System.Windows.Forms.Label();
@@ -61,7 +60,6 @@
             this.SelectDrinkPanel.SuspendLayout();
             this.SizeTablePanel.SuspendLayout();
             this.CustomizationsTablePanel.SuspendLayout();
-            this.MenuTablePanel.SuspendLayout();
             this.CustomizationPanel.SuspendLayout();
             this.DrinkCartPanel.SuspendLayout();
             this.CurrentOrderPanel.SuspendLayout();
@@ -204,7 +202,6 @@
             this.MenuTablePanel.ColumnCount = 2;
             this.MenuTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MenuTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MenuTablePanel.Controls.Add(this.btnDrink, 0, 2);
             this.MenuTablePanel.Location = new System.Drawing.Point(11, 64);
             this.MenuTablePanel.Name = "MenuTablePanel";
             this.MenuTablePanel.RowCount = 3;
@@ -213,22 +210,6 @@
             this.MenuTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MenuTablePanel.Size = new System.Drawing.Size(604, 165);
             this.MenuTablePanel.TabIndex = 10;
-            // 
-            // btnDrink
-            // 
-            this.btnDrink.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDrink.AutoSize = true;
-            this.btnDrink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(105)))), ((int)(((byte)(120)))));
-            this.btnDrink.Enabled = false;
-            this.btnDrink.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDrink.ForeColor = System.Drawing.Color.White;
-            this.btnDrink.Location = new System.Drawing.Point(57, 59);
-            this.btnDrink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDrink.Name = "btnDrink";
-            this.btnDrink.Size = new System.Drawing.Size(188, 47);
-            this.btnDrink.TabIndex = 15;
-            this.btnDrink.Text = "Drink Name";
-            this.btnDrink.UseVisualStyleBackColor = false;
             // 
             // MenuTitle
             // 
@@ -483,8 +464,6 @@
             this.SizeTablePanel.PerformLayout();
             this.CustomizationsTablePanel.ResumeLayout(false);
             this.CustomizationsTablePanel.PerformLayout();
-            this.MenuTablePanel.ResumeLayout(false);
-            this.MenuTablePanel.PerformLayout();
             this.CustomizationPanel.ResumeLayout(false);
             this.CustomizationPanel.PerformLayout();
             this.DrinkCartPanel.ResumeLayout(false);
@@ -533,6 +512,5 @@
         private TableLayoutPanel SizeTablePanel;
         private TableLayoutPanel CustomizationsTablePanel;
         private Button btnCustomization;
-        private Button btnDrink;
     }
 }
