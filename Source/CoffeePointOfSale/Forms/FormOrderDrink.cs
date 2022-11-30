@@ -45,6 +45,7 @@ namespace CoffeePointOfSale.Forms
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            /*
             foreach (Drink d in _drinkMenuService.DrinkMenu.List)
             {
                 Button newDrink = new Button();
@@ -52,10 +53,12 @@ namespace CoffeePointOfSale.Forms
                 newDrink.Text = d.Name;
                 MenuTablePanel.Controls.Add(newDrink);
             }
+            
             Label testBtn = new Label();
             testBtn.Name = "test";
             testBtn.Text = "test";
             MenuTablePanel.Controls.Add(testBtn);
+            */
         }
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
