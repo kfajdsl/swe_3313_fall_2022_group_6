@@ -21,14 +21,16 @@ namespace CoffeePointOfSale.Forms
     public partial class FormOrderDrink : Base.FormNoCloseBase
     {
         private IDrinkMenuService _drinkMenuService;
-        private Customer _customer;
         private IAppSettings _appSettings;
+        private ICustomerService _customerService;
+
         private Order newOrder = new Order();
         private Drink activeDrink = new Drink();
 
         Pen backgroundpen = new Pen(Color.FromArgb(255, 242, 242, 242), 500);
-        public FormOrderDrink(IAppSettings appSettings, IDrinkMenuService drinkMenuService) : base(appSettings)
+        public FormOrderDrink(ICustomerService customerService, IAppSettings appSettings, IDrinkMenuService drinkMenuService) : base(appSettings)
         {
+            _customerService = customerService;
             _drinkMenuService = drinkMenuService;
             _appSettings = appSettings;
             InitializeComponent();
@@ -205,6 +207,7 @@ namespace CoffeePointOfSale.Forms
 
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
+            _customerService.CurrentOrder = newOrder;
             Close(); //closes this form
             FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
         }
