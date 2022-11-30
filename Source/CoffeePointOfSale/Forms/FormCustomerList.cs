@@ -13,20 +13,20 @@ using CoffeePointOfSale.Services.Customer;
 
 namespace CoffeePointOfSale.Forms
 {
-    public partial class FormCustomerList2 : FormNoCloseBase
+    public partial class FormCustomerList : FormNoCloseBase
     {
         //Customer Service to read the customers
         private readonly ICustomerService _customerService;
 
         //Constructor
-        public FormCustomerList2(ICustomerService customerService)
+        public FormCustomerList(ICustomerService customerService)
         {
             _customerService = customerService;
             InitializeComponent();
         }
 
         //When it loads add all the fields in the Customer table
-        private void FormCustomerList2_Load(object sender, EventArgs e)
+        private void FormCustomerList_Load(object sender, EventArgs e)
         {
             //Create empty Lables and gives format
             Label _label1 = new Label();
@@ -66,14 +66,14 @@ namespace CoffeePointOfSale.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
-            FormFactory.Get<FormMain>();
+            FormFactory.Get<FormMain>().Show();
         }
 
         //Goes to Add Customer Form
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             Hide();
-            FormFactory.Get<FormAddCustomer>();
+            FormFactory.Get<FormAddCustomer>().Show();
         }
     }
 }

@@ -176,7 +176,7 @@
             this.Controls.Add(this.btnCancel);
             this.Name = "FormCustomerList2";
             this.Text = "FormCustomerList2";
-            this.Load += new System.EventHandler(this.FormCustomerList2_Load);
+            this.Load += new System.EventHandler(this.FormCustomerList_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
