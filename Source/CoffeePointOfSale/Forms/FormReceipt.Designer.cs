@@ -86,7 +86,7 @@
             this.OrderNumTitle.BackColor = System.Drawing.Color.White;
             this.OrderNumTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderNumTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.OrderNumTitle.Location = new System.Drawing.Point(82, 16);
+            this.OrderNumTitle.Location = new System.Drawing.Point(100, 15);
             this.OrderNumTitle.Name = "OrderNumTitle";
             this.OrderNumTitle.Size = new System.Drawing.Size(84, 25);
             this.OrderNumTitle.TabIndex = 12;
@@ -110,10 +110,10 @@
             // OrderNumberLabel
             // 
             this.OrderNumberLabel.AutoSize = true;
-            this.OrderNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.OrderNumberLabel.Location = new System.Drawing.Point(86, 46);
+            this.OrderNumberLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.OrderNumberLabel.Location = new System.Drawing.Point(100, 46);
             this.OrderNumberLabel.Name = "OrderNumberLabel";
-            this.OrderNumberLabel.Size = new System.Drawing.Size(19, 20);
+            this.OrderNumberLabel.Size = new System.Drawing.Size(19, 21);
             this.OrderNumberLabel.TabIndex = 0;
             this.OrderNumberLabel.Text = "0";
             // 
