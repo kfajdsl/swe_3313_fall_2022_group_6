@@ -259,7 +259,8 @@
             // 
             // btnProceedToPayment
             // 
-            this.btnProceedToPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
+            this.btnProceedToPayment.BackColor = System.Drawing.Color.LightGray;
+            this.btnProceedToPayment.Enabled = false;
             this.btnProceedToPayment.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnProceedToPayment.ForeColor = System.Drawing.Color.White;
             this.btnProceedToPayment.Location = new System.Drawing.Point(300, 365);

@@ -189,7 +189,9 @@ namespace CoffeePointOfSale.Forms
             DrinkItem.Text = "" + activeDrink.Name + ": " + activeDrink + " $" + total;
             DrinkItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
+            // Sets tag to the drink and label
             btnNewDeleteDrinkItem.Tag = new {drinkItem = activeDrink, drinkLabel = DrinkItem};
+            // Adds the delete button and item label
             CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
             CurrentDrinkOrderTable.Controls.Add(DrinkItem);
 
@@ -201,6 +203,11 @@ namespace CoffeePointOfSale.Forms
             TaxPriceLabel.Text = "$" + newOrder.Tax;
             TotalPriceLabel.Text = "$" + newOrder.Total;
             activeDrink = new Drink();
+
+            // Enables pay button
+            btnProceedToPayment.Enabled = true;
+            btnProceedToPayment.BackColor = Color.FromArgb(119, 221, 83);
+            // Disables customization menu
             CustomizationPanel.Enabled = false;
             CustomizationPanel.Visible = false;
 
@@ -209,7 +216,7 @@ namespace CoffeePointOfSale.Forms
         private void btnProceedToPayment_Click(object sender, EventArgs e)
         {
             _customerService.CurrentOrder = newOrder;
-            //newOrder = new Order();
+            newOrder = new Order();
             Close(); //closes this form
             FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
         }
@@ -225,9 +232,17 @@ namespace CoffeePointOfSale.Forms
             newOrder.Total -= (deleteDrink.getTotal() + Decimal.Round(Decimal.Multiply(deleteDrink.getTotal(), _appSettings.Tax.Rate), 2));
             CurrentDrinkOrderTable.Controls.Remove(deleteLabel);
             CurrentDrinkOrderTable.Controls.Remove(deleteButton);
+
+            //Updates Order Price Labels
             SubtotalPriceLabel.Text = "$" + newOrder.SubTotal;
             TaxPriceLabel.Text = "$" + newOrder.Tax;
             TotalPriceLabel.Text = "$" + newOrder.Total;
+            //Disables pay button if order is now empty
+            if (newOrder.Drinks.Count == 0)
+            {
+                btnProceedToPayment.Enabled = false;
+                btnProceedToPayment.BackColor = Color.LightGray;
+            }
         }
 
         private void btnCustomization_Click(object sender, EventArgs e)
