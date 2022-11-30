@@ -90,6 +90,8 @@ namespace CoffeePointOfSale.Forms
                 newSize.AutoSize = true;
                 newSize.Tag = s;
                 SizeTablePanel.Controls.Add(newSize);
+                SizeTablePanel.RowCount++;
+                SizeTablePanel.RowStyles.Add(new RowStyle());
             }
         }
 
@@ -220,6 +222,11 @@ namespace CoffeePointOfSale.Forms
         }
 
         private void btnCustomization_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SizeTablePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
