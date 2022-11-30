@@ -30,6 +30,9 @@ public class Order
     [JsonConverter(typeof(StringEnumConverter))]
     public OrderPaymentMethod PaymentMethod { get; set; } = OrderPaymentMethod.Unpaid;
 
+    [JsonIgnore]
+    public string CreditCardLast4Digits = ""; // HACK for passing betweeen payment screen and receipt screen
+
     public List<Drink> Drinks { get; set; } = new List<Drink>();
 }
 
