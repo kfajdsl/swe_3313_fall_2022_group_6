@@ -38,17 +38,22 @@ namespace CoffeePointOfSale.Forms
                 orderby !Customer.IsAnonymous, Customer.LastName, Customer.FirstName, Customer.Phone//Anonymous customer first, then "ascending", LastName, FirstName, or Phone Number
                 select Customer;
 
+            tableLayoutPanel1.RowStyles.RemoveAt(1);
+            tableLayoutPanel1.RowCount--;
             //Adds every customer to the table
             foreach (Customer customer in
                 sortedClients) {
+                tableLayoutPanel1.RowCount++;
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40));
                 
                 //Create empty Lables and gives format
                 Label _label1 = new Label();
                 Label _label2 = new Label();
                 Label _label3 = new Label();
                 Label _label4 = new Label();
-                _label1.Font = _label2.Font = _label3.Font = _label4.Font = new Font("Arial", 10);
-                _label1.TextAlign = _label2.TextAlign = _label3.TextAlign = _label4.TextAlign = ContentAlignment.TopCenter;
+                _label1.Font = _label2.Font = _label3.Font = _label4.Font = new Font("Arial", 14);
+                _label1.TextAlign = _label2.TextAlign = _label3.TextAlign = _label4.TextAlign = ContentAlignment.TopLeft;
+                _label1.AutoSize = _label2.AutoSize = _label3.AutoSize = _label4.AutoSize = true;
 
                 //Creates empty buttons and gives format and functionality
                 Button _button = new Button();
