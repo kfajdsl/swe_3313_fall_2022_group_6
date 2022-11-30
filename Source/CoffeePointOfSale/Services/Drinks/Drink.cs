@@ -23,4 +23,13 @@ public class Drink
 
         return $"${totalPrice.ToString("F")} {Name} {customizationsBuilder.ToString()}";
     }
+    public decimal getTotal()
+    {
+        decimal totalPrice = BasePrice;
+        foreach (var customization in Customizations)
+        {
+            totalPrice += customization.Price;
+        }
+        return totalPrice;
+    }
 }
