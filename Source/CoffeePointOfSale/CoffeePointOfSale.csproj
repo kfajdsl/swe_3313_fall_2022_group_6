@@ -42,4 +42,6 @@
     </None>
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties jsonstorage_4customers_1json__JsonSchema="https://github.com/napari/npe2/releases/latest/download/schema.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

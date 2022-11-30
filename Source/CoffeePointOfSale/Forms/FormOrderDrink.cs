@@ -97,6 +97,7 @@ namespace CoffeePointOfSale.Forms
                 newSize.Text = s.Name;
                 newSize.AutoSize = true;
                 newSize.Tag = s;
+                newSize.Click += new EventHandler(this.sizeButton_Click);
                 SizeTablePanel.Controls.Add(newSize);
                 SizeTablePanel.RowCount++;
                 SizeTablePanel.RowStyles.Add(new RowStyle());
