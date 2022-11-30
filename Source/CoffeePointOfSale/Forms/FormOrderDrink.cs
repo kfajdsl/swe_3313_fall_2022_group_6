@@ -220,7 +220,7 @@ namespace CoffeePointOfSale.Forms
             _customerService.CurrentOrder = newOrder;
             newOrder = new Order();
             Close(); //closes this form
-            FormFactory.Get<FormReceipt>().Show(); //opens the receipt screen with the current order
+            FormFactory.Get<FormPayment>().Show(); //opens the receipt screen with the current order
         }
 
         private void btnDeleteDrinkItem_Click(object sender, EventArgs e)
