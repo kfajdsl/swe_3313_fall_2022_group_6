@@ -41,20 +41,20 @@
             this.SubtotalTitle = new System.Windows.Forms.Label();
             this.PaymentTitle = new System.Windows.Forms.Label();
             this.SelectDrinkPanel = new System.Windows.Forms.Panel();
-            this.CVVTextBox = new System.Windows.Forms.TextBox();
+            this.RewardsPanel = new System.Windows.Forms.Panel();
             this.btnPayWithRewards = new System.Windows.Forms.Button();
             this.OrderRewardsCost = new System.Windows.Forms.Label();
             this.CustomerRewardsLabel = new System.Windows.Forms.Label();
             this.RewardsPriceTitle = new System.Windows.Forms.Label();
             this.CustomerRewardsPointsTitle = new System.Windows.Forms.Label();
+            this.RewardsTitle = new System.Windows.Forms.Label();
+            this.CVVTextBox = new System.Windows.Forms.TextBox();
             this.CardYearDropdown = new System.Windows.Forms.ComboBox();
             this.CardMonthDropdown = new System.Windows.Forms.ComboBox();
             this.CreditCardTextInput = new System.Windows.Forms.TextBox();
             this.btnPayWithCard = new System.Windows.Forms.Button();
-            this.RewardsTitle = new System.Windows.Forms.Label();
             this.CreditCardTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.RewardsPanel = new System.Windows.Forms.Panel();
             this.DrinkCartPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SelectDrinkPanel.SuspendLayout();
@@ -227,19 +227,23 @@
             this.SelectDrinkPanel.Size = new System.Drawing.Size(627, 521);
             this.SelectDrinkPanel.TabIndex = 9;
             // 
-            // CVVTextBox
+            // RewardsPanel
             // 
-            this.CVVTextBox.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CVVTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(144)))), ((int)(((byte)(165)))));
-            this.CVVTextBox.Location = new System.Drawing.Point(388, 148);
-            this.CVVTextBox.Name = "CVVTextBox";
-            this.CVVTextBox.Size = new System.Drawing.Size(113, 33);
-            this.CVVTextBox.TabIndex = 23;
-            this.CVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RewardsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.RewardsPanel.Controls.Add(this.btnPayWithRewards);
+            this.RewardsPanel.Controls.Add(this.OrderRewardsCost);
+            this.RewardsPanel.Controls.Add(this.CustomerRewardsLabel);
+            this.RewardsPanel.Controls.Add(this.RewardsPriceTitle);
+            this.RewardsPanel.Controls.Add(this.CustomerRewardsPointsTitle);
+            this.RewardsPanel.Controls.Add(this.RewardsTitle);
+            this.RewardsPanel.Location = new System.Drawing.Point(11, 267);
+            this.RewardsPanel.Name = "RewardsPanel";
+            this.RewardsPanel.Size = new System.Drawing.Size(597, 250);
+            this.RewardsPanel.TabIndex = 24;
             // 
             // btnPayWithRewards
             // 
-            this.btnPayWithRewards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(83)))));
+            this.btnPayWithRewards.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnPayWithRewards.Enabled = false;
             this.btnPayWithRewards.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPayWithRewards.ForeColor = System.Drawing.Color.White;
@@ -250,6 +254,7 @@
             this.btnPayWithRewards.TabIndex = 22;
             this.btnPayWithRewards.Text = "Pay with Rewards";
             this.btnPayWithRewards.UseVisualStyleBackColor = false;
+            this.btnPayWithRewards.Click += new System.EventHandler(this.btnPayWithRewards_Click);
             // 
             // OrderRewardsCost
             // 
@@ -298,6 +303,30 @@
             this.CustomerRewardsPointsTitle.Size = new System.Drawing.Size(327, 25);
             this.CustomerRewardsPointsTitle.TabIndex = 19;
             this.CustomerRewardsPointsTitle.Text = "Customer\'s Total Rewards Points: ";
+            // 
+            // RewardsTitle
+            // 
+            this.RewardsTitle.AutoSize = true;
+            this.RewardsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.RewardsTitle.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.RewardsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
+            this.RewardsTitle.Location = new System.Drawing.Point(193, 10);
+            this.RewardsTitle.Name = "RewardsTitle";
+            this.RewardsTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RewardsTitle.Size = new System.Drawing.Size(204, 56);
+            this.RewardsTitle.TabIndex = 9;
+            this.RewardsTitle.Text = "Rewards";
+            this.RewardsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CVVTextBox
+            // 
+            this.CVVTextBox.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CVVTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(144)))), ((int)(((byte)(165)))));
+            this.CVVTextBox.Location = new System.Drawing.Point(388, 148);
+            this.CVVTextBox.Name = "CVVTextBox";
+            this.CVVTextBox.Size = new System.Drawing.Size(113, 33);
+            this.CVVTextBox.TabIndex = 23;
+            this.CVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CardYearDropdown
             // 
@@ -363,20 +392,6 @@
             this.btnPayWithCard.Text = "Pay with Credit Card";
             this.btnPayWithCard.UseVisualStyleBackColor = false;
             // 
-            // RewardsTitle
-            // 
-            this.RewardsTitle.AutoSize = true;
-            this.RewardsTitle.BackColor = System.Drawing.Color.Transparent;
-            this.RewardsTitle.Font = new System.Drawing.Font("Lato", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RewardsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(82)))), ((int)(((byte)(94)))));
-            this.RewardsTitle.Location = new System.Drawing.Point(193, 10);
-            this.RewardsTitle.Name = "RewardsTitle";
-            this.RewardsTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RewardsTitle.Size = new System.Drawing.Size(204, 56);
-            this.RewardsTitle.TabIndex = 9;
-            this.RewardsTitle.Text = "Rewards";
-            this.RewardsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CreditCardTitle
             // 
             this.CreditCardTitle.AutoSize = true;
@@ -404,20 +419,6 @@
             this.btnClose.Text = "Cancel Order";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // RewardsPanel
-            // 
-            this.RewardsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.RewardsPanel.Controls.Add(this.btnPayWithRewards);
-            this.RewardsPanel.Controls.Add(this.OrderRewardsCost);
-            this.RewardsPanel.Controls.Add(this.CustomerRewardsLabel);
-            this.RewardsPanel.Controls.Add(this.RewardsPriceTitle);
-            this.RewardsPanel.Controls.Add(this.CustomerRewardsPointsTitle);
-            this.RewardsPanel.Controls.Add(this.RewardsTitle);
-            this.RewardsPanel.Location = new System.Drawing.Point(11, 267);
-            this.RewardsPanel.Name = "RewardsPanel";
-            this.RewardsPanel.Size = new System.Drawing.Size(597, 250);
-            this.RewardsPanel.TabIndex = 24;
             // 
             // FormPayment
             // 
