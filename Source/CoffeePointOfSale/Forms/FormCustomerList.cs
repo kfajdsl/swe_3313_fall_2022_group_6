@@ -43,11 +43,12 @@ namespace CoffeePointOfSale.Forms
                 //Creates empty buttons and gives format and functionality
                 Button _button = new Button();
                 _button.Text = "Order";
+                _button.Tag = customer.Phone;
                 _button.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
                 _button.TextAlign = ContentAlignment.TopCenter;
                 _button.BackColor = Color.FromArgb(119, 211, 83);
                 _button.ForeColor = Color.White;
-
+                _button.Click += new System.EventHandler(this.Customer_Click);
 
                 _label1.Text = customer.LastName;
                 _label2.Text = customer.FirstName;
@@ -68,6 +69,16 @@ namespace CoffeePointOfSale.Forms
         {
             Hide();
             FormFactory.Get<FormMain>().Show();
+        }
+
+
+        //Goes to Order with the selected customer
+        private void Customer_Click(object sender, EventArgs e)
+        {
+            Button customer_ = (sender as Button);
+            _customerService.CurrentCustomer = _customerService.Customers[(customer_.Tag as string)];
+            Hide();
+            FormFactory.Get<FormOrderDrink>().Show();
         }
 
         //Goes to Add Customer Form
