@@ -301,14 +301,16 @@
             this.CurrentDrinkOrderTable.ColumnCount = 2;
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-            this.CurrentDrinkOrderTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Controls.Add(this.btnDeleteDrinkItem, 0, 0);
             this.CurrentDrinkOrderTable.Controls.Add(this.ExampleDrinkItem, 1, 0);
             this.CurrentDrinkOrderTable.Location = new System.Drawing.Point(13, 47);
             this.CurrentDrinkOrderTable.Name = "CurrentDrinkOrderTable";
-            this.CurrentDrinkOrderTable.RowCount = 2;
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.CurrentDrinkOrderTable.RowCount = 4;
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CurrentDrinkOrderTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CurrentDrinkOrderTable.Size = new System.Drawing.Size(561, 284);
             this.CurrentDrinkOrderTable.TabIndex = 14;
             // 
@@ -322,7 +324,7 @@
             this.btnDeleteDrinkItem.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDrinkItem.Image")));
             this.btnDeleteDrinkItem.Location = new System.Drawing.Point(11, 3);
             this.btnDeleteDrinkItem.Name = "btnDeleteDrinkItem";
-            this.btnDeleteDrinkItem.Size = new System.Drawing.Size(69, 69);
+            this.btnDeleteDrinkItem.Size = new System.Drawing.Size(69, 65);
             this.btnDeleteDrinkItem.TabIndex = 0;
             this.btnDeleteDrinkItem.UseVisualStyleBackColor = false;
             this.btnDeleteDrinkItem.Visible = false;
@@ -334,7 +336,7 @@
             this.ExampleDrinkItem.AutoSize = true;
             this.ExampleDrinkItem.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExampleDrinkItem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ExampleDrinkItem.Location = new System.Drawing.Point(94, 26);
+            this.ExampleDrinkItem.Location = new System.Drawing.Point(94, 24);
             this.ExampleDrinkItem.Name = "ExampleDrinkItem";
             this.ExampleDrinkItem.Size = new System.Drawing.Size(95, 23);
             this.ExampleDrinkItem.TabIndex = 1;

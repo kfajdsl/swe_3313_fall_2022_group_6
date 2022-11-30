@@ -155,7 +155,6 @@ namespace CoffeePointOfSale.Forms
                 Cindex++;
             }
         }
-
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             // Creates the delete drink button
