@@ -9,10 +9,10 @@ public class Customer
     public const string AnonymousLastName = "Anonymous";
 
 
-    private string _phone = ""; //backing field for Phone property. only needed because the setter has logic to handle nulls and trimming spaces.
+    private string _phone = AnonymousCustomerId; //backing field for Phone property. only needed because the setter has logic to handle nulls and trimming spaces.
     private int _rewardPoints = 0;
-    private string _firstName = "";
-    private string _lastName = "";
+    private string _firstName = AnonymousFirstName;
+    private string _lastName = AnonymousLastName;
 
     public virtual string Phone
     {
