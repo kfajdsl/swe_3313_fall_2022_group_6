@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,41 +51,70 @@ namespace CoffeePointOfSale.Forms
         }
         private void newDrink_Click(object sender, EventArgs e)
         {
+            // Adds the drink button pressed as an object
             Button drinkButton = (sender as Button);
             int index = (int) drinkButton.Tag;
-            //activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
+            // Creates a new drink with base size
+            activeDrink = _drinkMenuService.DrinkMenu.DrinkList[index].NewDrink();
             activeDrink = new Drink();
+            activeDrink.Customizations.Add(_drinkMenuService.DrinkMenu.CustomizationList[0].NewCustomization());
+            // Unhides the customizations pannel
             CustomizationPanel.Enabled = true;
             CustomizationPanel.Visible = true;
             CustomizationPanel.BackColor = Color.White;
         }
         private void newCustomization_Click(object sender, EventArgs e)
         {
+            // Adds the customization button pressed as an object
             Button customizationButton = (sender as Button);
             int index = (int) customizationButton.Tag;
-            //Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
-            //activeDrink.Customizations.Add(newCustomization);
+            // Adds the new customization to the active drink
+            Customization newCustomization = _drinkMenuService.DrinkMenu.CustomizationList[index].NewCustomization();
+            activeDrink.Customizations.Add(newCustomization);
         }
+        // Changes the size from the small radio button
         private void SizeButton1_CheckedChanged(object sender, EventArgs e)
         {
+            Customization small = _drinkMenuService.DrinkMenu.CustomizationList[0].NewCustomization();
+            Customization medium = _drinkMenuService.DrinkMenu.CustomizationList[1].NewCustomization();
+            Customization large = _drinkMenuService.DrinkMenu.CustomizationList[2].NewCustomization();
             if (SizeButton1.Checked)
             {
-                
+                activeDrink.Customizations.Add(small);
+                activeDrink.Customizations.Remove(medium);
+                activeDrink.Customizations.Remove(large);
             }
         }
+        // Changes the size from the medium radio button
         private void SizeButton2_CheckedChanged(object sender, EventArgs e)
         {
-
+            Customization small = _drinkMenuService.DrinkMenu.CustomizationList[0].NewCustomization();
+            Customization medium = _drinkMenuService.DrinkMenu.CustomizationList[1].NewCustomization();
+            Customization large = _drinkMenuService.DrinkMenu.CustomizationList[2].NewCustomization();
+            if (SizeButton2.Checked)
+            {
+                activeDrink.Customizations.Remove(small);
+                activeDrink.Customizations.Add(medium);
+                activeDrink.Customizations.Remove(large);
+            }
         }
+        // Changes the size from the large radio button
         private void SizeButton3_CheckedChanged(object sender, EventArgs e)
         {
-
+            Customization small = _drinkMenuService.DrinkMenu.CustomizationList[0].NewCustomization();
+            Customization medium = _drinkMenuService.DrinkMenu.CustomizationList[1].NewCustomization();
+            Customization large = _drinkMenuService.DrinkMenu.CustomizationList[2].NewCustomization();
+            if (SizeButton2.Checked)
+            {
+                activeDrink.Customizations.Remove(small);
+                activeDrink.Customizations.Remove(medium);
+                activeDrink.Customizations.Add(large);
+            }
         }
-
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
             int Dindex = 0;
-
+            // Adds each drink item to the MenuTable
             foreach (DrinkMenuDrink d in _drinkMenuService.DrinkMenu.DrinkList)
             {
                 // Creates a new button for a DrinkMenuItem
@@ -119,7 +149,7 @@ namespace CoffeePointOfSale.Forms
             }
 
             int Cindex = 0;
-
+            // Adds each customization to the CustomizationMenuTable
             foreach (DrinkMenuCustomization c in _drinkMenuService.DrinkMenu.CustomizationList)
             {
                 // Creates a new button for a DrinkMenuCustomization
@@ -156,6 +186,7 @@ namespace CoffeePointOfSale.Forms
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
+            // Creates the delete drink button
             Button btnNewDeleteDrinkItem = new Button();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrderDrink));
             btnNewDeleteDrinkItem.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -172,6 +203,8 @@ namespace CoffeePointOfSale.Forms
             btnNewDeleteDrinkItem.Click += new System.EventHandler(this.btnDeleteDrinkItem_Click);
             CurrentDrinkOrderTable.Controls.Add(btnNewDeleteDrinkItem);
 
+
+            // Creates the drink info label
             Label DrinkItem = new Label();
             DrinkItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             DrinkItem.AutoSize = true;
