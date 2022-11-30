@@ -79,9 +79,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastNameLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PhoneLabel, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.FirstNameLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.RewardPointsLabel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PhoneLabel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.RewardPointsLabel, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(88, 97);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -119,7 +119,7 @@
             this.PhoneLabel.AutoSize = true;
             this.PhoneLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PhoneLabel.Location = new System.Drawing.Point(697, 1);
+            this.PhoneLabel.Location = new System.Drawing.Point(466, 1);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(179, 34);
             this.PhoneLabel.TabIndex = 13;
@@ -143,7 +143,7 @@
             this.RewardPointsLabel.AutoSize = true;
             this.RewardPointsLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RewardPointsLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RewardPointsLabel.Location = new System.Drawing.Point(466, 1);
+            this.RewardPointsLabel.Location = new System.Drawing.Point(697, 1);
             this.RewardPointsLabel.Name = "RewardPointsLabel";
             this.RewardPointsLabel.Size = new System.Drawing.Size(164, 34);
             this.RewardPointsLabel.TabIndex = 14;
